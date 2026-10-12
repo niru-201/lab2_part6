@@ -1,0 +1,40 @@
+--- !Passed
+Pass:            reflow-array-reshape
+Name:            ArrayXform
+DebugLoc:        { File: dot_q8_0.cpp, Line: 44, Column: 0 }
+Function:        _Z8dot_q8_0iPKaPKDhS0_S2_
+Args:            
+  - String:          'Applying '
+  - String:          array_reshape
+  - String:          ' to '''
+  - UOName:          xq
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' reshaping'
+  - String:          ' with factor '
+  - Factor:          '32'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-reshape
+Name:            ArrayXform
+DebugLoc:        { File: dot_q8_0.cpp, Line: 44, Column: 0 }
+Function:        _Z8dot_q8_0iPKaPKDhS0_S2_
+Args:            
+  - String:          'Applying '
+  - String:          array_reshape
+  - String:          ' to '''
+  - UOName:          yq
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' reshaping'
+  - String:          ' with factor '
+  - Factor:          '32'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...

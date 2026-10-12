@@ -1,0 +1,627 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'nkg557' on host 'mario.ece.utexas.edu' (Linux_x86_64 version 4.18.0-553.170.1.el8_10.x86_64) on Sun Oct 11 17:42:10 CDT 2026
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
+INFO: [HLS 200-10] In directory '/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset hls_dot 
+INFO: [HLS 200-10] Creating and opening project '/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot'.
+INFO: [HLS 200-1510] Running: set_top dot_q8_0 
+INFO: [HLS 200-1510] Running: add_files dot_q8_0.cpp 
+INFO: [HLS 200-10] Adding design file 'dot_q8_0.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb_dot_q8_0.cpp 
+INFO: [HLS 200-10] Adding test bench file 'tb_dot_q8_0.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb vec_dot_q8_0.c 
+INFO: [HLS 200-10] Adding test bench file 'vec_dot_q8_0.c' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution '/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: config_compile -pipeline_loops 0 
+INFO: [HLS 200-1510] Running: set_directive_unroll -factor 16 dot_q8_0/ELEM_LOOP 
+INFO: [HLS 200-1510] Running: csim_design 
+Running Dispatch Server on port: 43933
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../vec_dot_q8_0.c in debug mode
+INFO: [HLS 200-10] Running '/usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'nkg557' on host 'mario.ece.utexas.edu' (Linux_x86_64 version 4.18.0-553.170.1.el8_10.x86_64) on Sun Oct 11 17:42:26 CDT 2026
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
+INFO: [HLS 200-10] In directory '/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_nkg557/37844651791758547087753
+INFO: [APCC 202-1] APCC is done.
+INFO: [HLS 200-112] Total CPU user time: 2.38 seconds. Total CPU system time: 0.32 seconds. Total elapsed time: 2.67 seconds; peak allocated memory: 98.941 MB.
+   Compiling ../../../../tb_dot_q8_0.cpp in debug mode
+   Compiling ../../../../dot_q8_0.cpp in debug mode
+   Generating csim.exe
+
+ Basic hand chosen tests: 
+  [PASS] ones, n=32: ref 32, dut 32, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ones, n=4096: ref 4096, dut 4096, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * 127: ref 516128, dut 516128, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] -128 * -128: ref 524288, dut 524288, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * -128: ref -520192, dut -520192, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ramp: ref 2736, dut 2736, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] alternating signs: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] zero scale: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] mixed scales: ref 320, dut 320, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal scale: ref 1.90734863e-06, dut 1.90734863e-06, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] max scales: ref 2.24960133e+15, dut 2.24960133e+15, abs err 0.00e+00, rel err 0.00e+00%
+
+ Testing different lengths: 
+  [PASS] nb = 0: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX (4864 elements): ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX + 10 is clamped: ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] only last block non-zero: ref 3696, dut 3696, abs err 0.00e+00, rel err 0.00e+00%
+
+ Random (llama.cpp quantizer): 
+  n=32, sigma=0.0001: 3/3 pass
+  n=32, sigma=0.02: 3/3 pass
+  n=32, sigma=1: 3/3 pass
+  n=896, sigma=0.0001: 3/3 pass
+  n=896, sigma=0.02: 3/3 pass
+  n=896, sigma=1: 3/3 pass
+  n=4864, sigma=0.0001: 3/3 pass
+  n=4864, sigma=0.02: 3/3 pass
+  n=4864, sigma=1: 3/3 pass
+
+ Special distributions (n=896): 
+  [PASS] outliers: ref -12.986536, dut -12.986536, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -2.57356167, dut -2.57356167, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000326006964, dut -0.000326006964, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref -15.856144, dut -15.856144, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.93269062, dut -3.93269062, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -8.22011789e-05, dut -8.22011789e-05, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref 15.1334705, dut 15.1334705, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.05851436, dut -3.05851436, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000636874058, dut -0.000636874058, abs err 0.00e+00, rel err 0.00e+00%
+
+51 tests, 0 failed, 51 bit-exact
+max absolute error: 0.000000e+00
+max relative error: 0.000000e+00 %
+* TEST PASSED *
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 4.84 seconds. CPU system time: 0.96 seconds. Elapsed time: 5.87 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 755.047 MB.
+INFO: [HLS 200-10] Analyzing design file 'dot_q8_0.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.42 seconds. CPU system time: 1.06 seconds. Elapsed time: 1.89 seconds; current allocated memory: 756.629 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-188] Unrolling loop 'ELEM_LOOP' (dot_q8_0.cpp:66:9) in function 'dot_q8_0' partially with a factor of 16 (dot_q8_0.cpp:44:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.71 seconds. CPU system time: 0.62 seconds. Elapsed time: 6.05 seconds; current allocated memory: 757.363 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 757.363 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 758.281 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 758.332 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (dot_q8_0.cpp:9:33) to (dot_q8_0.cpp:39:5) in function 'half_to_float'... converting 6 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'half_to_float' into 'dot_q8_0' (dot_q8_0.cpp:70) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'dot_q8_0' (dot_q8_0.cpp:42)...16 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 780.719 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 780.719 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dot_q8_0' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dot_q8_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.34 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.42 seconds; current allocated memory: 780.719 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 780.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dot_q8_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'dot_q8_0/nb' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dot_q8_0/xq' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dot_q8_0/xd' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dot_q8_0/yq' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dot_q8_0/yd' to 'bram'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'dot_q8_0' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/xq_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/xq_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/xq_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/xq_Din_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/xd_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/xd_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/yq_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/yq_Din_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/yq_WEN_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/yq_Din_B' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/yd_WEN_A' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dot_q8_0/yd_Din_A' to 0.
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8s_8s_16s_17_4_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8s_8s_16_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sitofp_32s_32_4_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dot_q8_0'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.49 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.66 seconds; current allocated memory: 780.719 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.41 seconds. CPU system time: 0.09 seconds. Elapsed time: 1.8 seconds; current allocated memory: 786.793 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.49 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.68 seconds; current allocated memory: 790.523 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for dot_q8_0.
+INFO: [VLOG 209-307] Generating Verilog RTL for dot_q8_0.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 147.24 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 8.37 seconds. CPU system time: 1.89 seconds. Elapsed time: 12.14 seconds; current allocated memory: 35.551 MB.
+INFO: [HLS 200-1510] Running: cosim_design -rtl verilog 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/bin/g++"
+   Compiling dot_q8_0.cpp_pre.cpp.tb.cpp
+   Compiling apatb_dot_q8_0.cpp
+   Compiling tb_dot_q8_0.cpp_pre.cpp.tb.cpp
+   Compiling vec_dot_q8_0.c_pre.c.tb.c
+   Compiling apatb_dot_q8_0_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+
+ Basic hand chosen tests: 
+  [PASS] ones, n=32: ref 32, dut 32, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ones, n=4096: ref 4096, dut 4096, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * 127: ref 516128, dut 516128, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] -128 * -128: ref 524288, dut 524288, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * -128: ref -520192, dut -520192, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ramp: ref 2736, dut 2736, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] alternating signs: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] zero scale: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] mixed scales: ref 320, dut 320, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal scale: ref 1.90734863e-06, dut 1.90734863e-06, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] max scales: ref 2.24960133e+15, dut 2.24960133e+15, abs err 0.00e+00, rel err 0.00e+00%
+
+ Testing different lengths: 
+  [PASS] nb = 0: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX (4864 elements): ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX + 10 is clamped: ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] only last block non-zero: ref 3696, dut 3696, abs err 0.00e+00, rel err 0.00e+00%
+
+ Random (llama.cpp quantizer): 
+  n=32, sigma=0.0001: 3/3 pass
+  n=32, sigma=0.02: 3/3 pass
+  n=32, sigma=1: 3/3 pass
+  n=896, sigma=0.0001: 3/3 pass
+  n=896, sigma=0.02: 3/3 pass
+  n=896, sigma=1: 3/3 pass
+  n=4864, sigma=0.0001: 3/3 pass
+  n=4864, sigma=0.02: 3/3 pass
+  n=4864, sigma=1: 3/3 pass
+
+ Special distributions (n=896): 
+  [PASS] outliers: ref -12.986536, dut -12.986536, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -2.57356167, dut -2.57356167, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000326006964, dut -0.000326006964, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref -15.856144, dut -15.856144, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.93269062, dut -3.93269062, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -8.22011789e-05, dut -8.22011789e-05, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref 15.1334705, dut 15.1334705, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.05851436, dut -3.05851436, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000636874058, dut -0.000636874058, abs err 0.00e+00, rel err 0.00e+00%
+
+51 tests, 0 failed, 51 bit-exact
+max absolute error: 0.000000e+00
+max relative error: 0.000000e+00 %
+* TEST PASSED *
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source run_vivado_gen_ip.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1932.137 ; gain = 86.984 ; free physical = 122509 ; free virtual = 294836
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/packages/Xilinx_2022.2/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip'...
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 11 17:43:14 2026...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /usr/local/packages/Xilinx_2022.2/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_dot_q8_0_top glbl -Oenable_linking_all_libraries -prj dot_q8_0.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_20 -L floating_point_v7_1_15 --lib ieee_proposed=./ieee_proposed -s dot_q8_0 
+Multi-threading is on. Using 62 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/ip/xil_defaultlib/dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/ip/xil_defaultlib/dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/ip/xil_defaultlib/dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_dot_q8_0_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autobram_xq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autobram_xd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autobram_yq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autobram_yd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0_sitofp_32s_32_4_no_dsp_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_sitofp_32s_32_4_no_dsp_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0_mul_8s_8s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_mul_8s_8s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0_mac_muladd_8s_8s_16s_17_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot_q8_0_mac_muladd_8s_8s_16s_17_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module dot_q8_0_mac_muladd_8s_8s_16s_17_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package floating_point_v7_1_15.floating_point_v7_1_15_viv_comp
+Compiling package ieee.numeric_std
+Compiling package xbip_utils_v3_0_10.xbip_utils_v3_0_10_pkg
+Compiling package axi_utils_v2_0_6.axi_utils_v2_0_6_pkg
+Compiling package floating_point_v7_1_15.floating_point_v7_1_15_consts
+Compiling package ieee.math_real
+Compiling package floating_point_v7_1_15.floating_point_v7_1_15_exp_table...
+Compiling package mult_gen_v12_0_18.mult_gen_v12_0_18_pkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package floating_point_v7_1_15.floating_point_v7_1_15_pkg
+Compiling package floating_point_v7_1_15.flt_utils
+Compiling package xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv_comp
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package floating_point_v7_1_15.vt2mutils
+Compiling package floating_point_v7_1_15.vt2mcomps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=7,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_15.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=24,length=0,fast_in...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=16,length=0)\]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=4,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=48,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=24,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.dsp48e1_wrapper [\dsp48e1_wrapper(c_part="xczu3eg...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [delay_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=13,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=27,length=0)\]
+Compiling architecture synth of entity floating_point_v7_1_15.align_add_dsp48e1_sgl [\align_add_dsp48e1_sgl(c_xdevice...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000001111...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000000000...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=5,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.lead_zero_encode_shift [\lead_zero_encode_shift(ab_fw=24...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=3,length=0)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111110010101001011...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00010001010111110000...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11101110101000001111...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=2)\]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(adreg=0,alumodereg=0,ca...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=25,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=24,c_wi...]
+Compiling architecture rtl of entity floating_point_v7_1_15.norm_and_round_dsp48e1_sgl [\norm_and_round_dsp48e1_sgl(c_mu...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="10011001100110011001...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11111111000000001111...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=9,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=8,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=10)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=4,length=0,fast_inp...]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fde_v of entity unisim.FDE [fde_default]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_15.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(fast_input=true)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.special_detect [\special_detect(c_xdevicefamily=...]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_15.compare_gt [\compare_gt(c_xdevicefamily="zyn...]
+Compiling architecture synth of entity floating_point_v7_1_15.compare [\compare(c_xdevicefamily="zynqup...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=8)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=9)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=2,length=2,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(length=2,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(length=0,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=2,length=0,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=12,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_add_exp_sp [\flt_add_exp_sp(c_xdevicefamily=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=23)\]
+Compiling architecture synth of entity floating_point_v7_1_15.flt_dec_op [\flt_dec_op(c_xdevicefamily="zyn...]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_add_dsp [\flt_add_dsp(c_xdevicefamily="zy...]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_add [\flt_add(c_xdevicefamily="zynqup...]
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=32,length=0)\]
+Compiling architecture xilinx of entity floating_point_v7_1_15.floating_point_v7_1_15_viv [\floating_point_v7_1_15_viv(c_xd...]
+Compiling architecture xilinx of entity floating_point_v7_1_15.floating_point_v7_1_15 [\floating_point_v7_1_15(c_xdevic...]
+Compiling module xil_defaultlib.dot_q8_0_fadd_32ns_32ns_32_5_ful...
+Compiling module xil_defaultlib.dot_q8_0_fadd_32ns_32ns_32_5_ful...
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=17,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=24,b_wi...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture rtl of entity floating_point_v7_1_15.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=24,b_wi...]
+Compiling architecture struct of entity floating_point_v7_1_15.fix_mult_dsp48e1_sgl [\fix_mult_dsp48e1_sgl(registers=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.fix_mult [\fix_mult(c_xdevicefamily="zynqu...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=8,length=0,fast_inp...]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_15.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture rtl of entity floating_point_v7_1_15.special_detect [\special_detect(c_xdevicefamily=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=2,fast_input=true)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=4,fast_input=true)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=3,length=0,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=14,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_mult_exp [\flt_mult_exp(c_xdevicefamily="z...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=30,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=18,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=30,b_wi...]
+Compiling architecture struct of entity floating_point_v7_1_15.flt_round_dsp_opt_full [\flt_round_dsp_opt_full(c_xdevic...]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_mult_round [\flt_mult_round(c_xdevicefamily=...]
+Compiling architecture synth of entity floating_point_v7_1_15.flt_dec_op_lat [\flt_dec_op_lat(c_xdevicefamily=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_mult [\flt_mult(c_xdevicefamily="zynqu...]
+Compiling architecture xilinx of entity floating_point_v7_1_15.floating_point_v7_1_15_viv [\floating_point_v7_1_15_viv(c_xd...]
+Compiling architecture xilinx of entity floating_point_v7_1_15.floating_point_v7_1_15 [\floating_point_v7_1_15(c_xdevic...]
+Compiling module xil_defaultlib.dot_q8_0_fmul_32ns_32ns_32_4_max...
+Compiling module xil_defaultlib.dot_q8_0_fmul_32ns_32ns_32_4_max...
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture rtl of entity floating_point_v7_1_15.norm_zero_det [\norm_zero_det(data_width=7,norm...]
+Compiling architecture rtl of entity floating_point_v7_1_15.mux4 [\mux4(c_xdevicefamily="zynquplus...]
+Compiling architecture rtl of entity floating_point_v7_1_15.mux4 [\mux4(c_xdevicefamily="zynquplus...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=2,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture rtl of entity floating_point_v7_1_15.lead_zero_encode [\lead_zero_encode(c_xdevicefamil...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_15.delay [\delay(width=32)\]
+Compiling architecture rtl of entity floating_point_v7_1_15.shift_msb_first [\shift_msb_first(a_width=32,resu...]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture struct of entity floating_point_v7_1_15.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture rtl of entity floating_point_v7_1_15.flt_round_bit [\flt_round_bit(c_xdevicefamily="...]
+Compiling architecture rtl of entity floating_point_v7_1_15.renorm_and_round_logic [\renorm_and_round_logic(c_xdevic...]
+Compiling architecture synth of entity floating_point_v7_1_15.fix_to_flt_conv_exp [\fix_to_flt_conv_exp(c_xdevicefa...]
+Compiling architecture synth of entity floating_point_v7_1_15.flt_dec_op [\flt_dec_op(c_xdevicefamily="zyn...]
+Compiling architecture struct of entity floating_point_v7_1_15.fix_to_flt_conv [\fix_to_flt_conv(c_xdevicefamily...]
+Compiling architecture xilinx of entity floating_point_v7_1_15.floating_point_v7_1_15_viv [\floating_point_v7_1_15_viv(c_xd...]
+Compiling architecture xilinx of entity floating_point_v7_1_15.floating_point_v7_1_15 [\floating_point_v7_1_15(c_xdevic...]
+Compiling module xil_defaultlib.dot_q8_0_sitofp_32s_32_4_no_dsp_...
+Compiling module xil_defaultlib.dot_q8_0_sitofp_32s_32_4_no_dsp_...
+Compiling module xil_defaultlib.dot_q8_0_mul_8s_8s_16_1_1(NUM_ST...
+Compiling module xil_defaultlib.dot_q8_0_mac_muladd_8s_8s_16s_17...
+Compiling module xil_defaultlib.dot_q8_0_mac_muladd_8s_8s_16s_17...
+Compiling module xil_defaultlib.dot_q8_0
+Compiling module xil_defaultlib.AESL_autobram_xq
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xq.v" Line 94. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xq.v" Line 102. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xq.v" Line 105. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.AESL_autobram_xd
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xd.v" Line 94. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xd.v" Line 102. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_xd.v" Line 105. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.AESL_autobram_yq
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yq.v" Line 94. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yq.v" Line 102. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yq.v" Line 105. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.AESL_autobram_yd
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yd.v" Line 94. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yd.v" Line 102. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/AESL_autobram_yd.v" Line 105. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=26)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_dot_q8_0_top
+Compiling module work.glbl
+Built simulation snapshot dot_q8_0
+
+****** xsim v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/dot_q8_0/xsim_script.tcl
+# xsim {dot_q8_0} -autoloadwcfg -tclbatch {dot_q8_0.tcl}
+Time resolution is 1 ps
+source dot_q8_0.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 51 [0.00%] @ "125000"
+// RTL Simulation : 1 / 51 [100.00%] @ "515000"
+// RTL Simulation : 2 / 51 [100.00%] @ "46615000"
+// RTL Simulation : 3 / 51 [100.00%] @ "46995000"
+// RTL Simulation : 4 / 51 [100.00%] @ "47375000"
+// RTL Simulation : 5 / 51 [100.00%] @ "47755000"
+// RTL Simulation : 6 / 51 [100.00%] @ "48135000"
+// RTL Simulation : 7 / 51 [100.00%] @ "49595000"
+// RTL Simulation : 8 / 51 [100.00%] @ "50335000"
+// RTL Simulation : 9 / 51 [100.00%] @ "51795000"
+// RTL Simulation : 10 / 51 [100.00%] @ "52175000"
+// RTL Simulation : 11 / 51 [100.00%] @ "52555000"
+// RTL Simulation : 12 / 51 [100.00%] @ "52575000"
+// RTL Simulation : 13 / 51 [100.00%] @ "107315000"
+// RTL Simulation : 14 / 51 [100.00%] @ "162055000"
+// RTL Simulation : 15 / 51 [100.00%] @ "216795000"
+// RTL Simulation : 16 / 51 [100.00%] @ "217175000"
+// RTL Simulation : 17 / 51 [100.00%] @ "217555000"
+// RTL Simulation : 18 / 51 [100.00%] @ "217935000"
+// RTL Simulation : 19 / 51 [100.00%] @ "218315000"
+// RTL Simulation : 20 / 51 [100.00%] @ "218695000"
+// RTL Simulation : 21 / 51 [100.00%] @ "219075000"
+// RTL Simulation : 22 / 51 [100.00%] @ "219455000"
+// RTL Simulation : 23 / 51 [100.00%] @ "219835000"
+// RTL Simulation : 24 / 51 [100.00%] @ "220215000"
+// RTL Simulation : 25 / 51 [100.00%] @ "230315000"
+// RTL Simulation : 26 / 51 [100.00%] @ "240415000"
+// RTL Simulation : 27 / 51 [100.00%] @ "250515000"
+// RTL Simulation : 28 / 51 [100.00%] @ "260615000"
+// RTL Simulation : 29 / 51 [100.00%] @ "270715000"
+// RTL Simulation : 30 / 51 [100.00%] @ "280815000"
+// RTL Simulation : 31 / 51 [100.00%] @ "290915000"
+// RTL Simulation : 32 / 51 [100.00%] @ "301015000"
+// RTL Simulation : 33 / 51 [100.00%] @ "311115000"
+// RTL Simulation : 34 / 51 [100.00%] @ "365855000"
+// RTL Simulation : 35 / 51 [100.00%] @ "420595000"
+// RTL Simulation : 36 / 51 [100.00%] @ "475335000"
+// RTL Simulation : 37 / 51 [100.00%] @ "530075000"
+// RTL Simulation : 38 / 51 [100.00%] @ "584815000"
+// RTL Simulation : 39 / 51 [100.00%] @ "639555000"
+// RTL Simulation : 40 / 51 [100.00%] @ "694295000"
+// RTL Simulation : 41 / 51 [100.00%] @ "749035000"
+// RTL Simulation : 42 / 51 [100.00%] @ "803775000"
+// RTL Simulation : 43 / 51 [100.00%] @ "813875000"
+// RTL Simulation : 44 / 51 [100.00%] @ "823975000"
+// RTL Simulation : 45 / 51 [100.00%] @ "834075000"
+// RTL Simulation : 46 / 51 [100.00%] @ "844175000"
+// RTL Simulation : 47 / 51 [100.00%] @ "854275000"
+// RTL Simulation : 48 / 51 [100.00%] @ "864375000"
+// RTL Simulation : 49 / 51 [100.00%] @ "874475000"
+// RTL Simulation : 50 / 51 [100.00%] @ "884575000"
+// RTL Simulation : 51 / 51 [100.00%] @ "894675000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 894735 ns : File "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_3/hls_dot/solution1/sim/verilog/dot_q8_0.autotb.v" Line 554
+run: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:10 . Memory (MB): peak = 1473.719 ; gain = 0.000 ; free physical = 141106 ; free virtual = 313603
+## quit
+INFO: xsimkernel Simulation Memory Usage: 127492 KB (Peak: 175856 KB), Simulation CPU Usage: 10170 ms
+INFO: [Common 17-206] Exiting xsim at Sun Oct 11 17:43:58 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+
+ Basic hand chosen tests: 
+  [PASS] ones, n=32: ref 32, dut 32, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ones, n=4096: ref 4096, dut 4096, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * 127: ref 516128, dut 516128, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] -128 * -128: ref 524288, dut 524288, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * -128: ref -520192, dut -520192, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ramp: ref 2736, dut 2736, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] alternating signs: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] zero scale: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] mixed scales: ref 320, dut 320, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal scale: ref 1.90734863e-06, dut 1.90734863e-06, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] max scales: ref 2.24960133e+15, dut 2.24960133e+15, abs err 0.00e+00, rel err 0.00e+00%
+
+ Testing different lengths: 
+  [PASS] nb = 0: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX (4864 elements): ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX + 10 is clamped: ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] only last block non-zero: ref 3696, dut 3696, abs err 0.00e+00, rel err 0.00e+00%
+
+ Random (llama.cpp quantizer): 
+  n=32, sigma=0.0001: 3/3 pass
+  n=32, sigma=0.02: 3/3 pass
+  n=32, sigma=1: 3/3 pass
+  n=896, sigma=0.0001: 3/3 pass
+  n=896, sigma=0.02: 3/3 pass
+  n=896, sigma=1: 3/3 pass
+  n=4864, sigma=0.0001: 3/3 pass
+  n=4864, sigma=0.02: 3/3 pass
+  n=4864, sigma=1: 3/3 pass
+
+ Special distributions (n=896): 
+  [PASS] outliers: ref -12.986536, dut -12.986536, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -2.57356167, dut -2.57356167, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000326006964, dut -0.000326006964, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref -15.856144, dut -15.856144, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.93269062, dut -3.93269062, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -8.22011789e-05, dut -8.22011789e-05, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref 15.1334705, dut 15.1334705, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.05851436, dut -3.05851436, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000636874058, dut -0.000636874058, abs err 0.00e+00, rel err 0.00e+00%
+
+51 tests, 0 failed, 51 bit-exact
+max absolute error: 0.000000e+00
+max relative error: 0.000000e+00 %
+* TEST PASSED *
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 74.53 seconds. CPU system time: 5.67 seconds. Elapsed time: 76.9 seconds; current allocated memory: 6.094 MB.
+INFO: [HLS 200-112] Total CPU user time: 90.64 seconds. Total CPU system time: 9.59 seconds. Total elapsed time: 109.49 seconds; peak allocated memory: 796.723 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Sun Oct 11 17:43:59 2026...

@@ -1,0 +1,192 @@
+
+
+================================================================
+== Synthesis Summary Report of 'dot_q8_0'
+================================================================
++ General Information: 
+    * Date:           Sun Oct 11 17:42:41 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        hls_dot
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu3eg-sbva484-1-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+---------+------------+-----------+-----+
+    |    Modules    | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |         |            |           |     |
+    |    & Loops    | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM |   DSP   |     FF     |    LUT    | URAM|
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+---------+------------+-----------+-----+
+    |+ dot_q8_0     |     -|  0.51|     2456|  2.456e+04|         -|     2457|     -|        no|     -|  21 (5%)|  1176 (~0%)|  3018 (4%)|    -|
+    | o BLOCK_LOOP  |    II|  7.30|     2454|  2.454e+04|        39|       16|   152|       yes|     -|        -|           -|          -|    -|
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+---------+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* BRAM
++-----------+------------+---------------+
+| Interface | Data Width | Address Width |
++-----------+------------+---------------+
+| xd_PORTA  | 16         | 32            |
+| xq_PORTA  | 8          | 32            |
+| xq_PORTB  | 8          | 32            |
+| yd_PORTA  | 16         | 32            |
+| yq_PORTA  | 8          | 32            |
+| yq_PORTB  | 8          | 32            |
++-----------+------------+---------------+
+
+* Other Ports
++-----------+---------+----------+
+| Interface | Mode    | Bitwidth |
++-----------+---------+----------+
+| ap_return |         | 32       |
+| nb        | ap_none | 32       |
++-----------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+---------------------+
+| Argument | Direction | Datatype            |
++----------+-----------+---------------------+
+| nb       | in        | int                 |
+| xq       | in        | signed char const * |
+| xd       | in        | __fp16 const *      |
+| yq       | in        | signed char const * |
+| yd       | in        | __fp16 const *      |
+| return   | out       | float               |
++----------+-----------+---------------------+
+
+* SW-to-HW Mapping
++----------+--------------+-----------+
+| Argument | HW Interface | HW Type   |
++----------+--------------+-----------+
+| nb       | nb           | port      |
+| xq       | xq_PORTA     | interface |
+| xq       | xq_PORTB     | interface |
+| xd       | xd_PORTA     | interface |
+| yq       | yq_PORTA     | interface |
+| yq       | yq_PORTB     | interface |
+| yd       | yd_PORTA     | interface |
+| return   | ap_return    | port      |
++----------+--------------+-----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------+-----+--------+-------------+------+---------+---------+
+| Name                                | DSP | Pragma | Variable    | Op   | Impl    | Latency |
++-------------------------------------+-----+--------+-------------+------+---------+---------+
+| + dot_q8_0                          | 21  |        |             |      |         |         |
+|   add_ln60_fu_910_p2                | -   |        | add_ln60    | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U20   | 1   |        | mul_ln67    | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U4               | -   |        | mul_ln67_1  | mul  | auto    | 0       |
+|   mul_8s_8s_16_1_1_U5               | -   |        | mul_ln67_2  | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U21   | 1   |        | mul_ln67_3  | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U6               | -   |        | mul_ln67_4  | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U22   | 1   |        | mul_ln67_5  | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U7               | -   |        | mul_ln67_6  | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U23   | 1   |        | mul_ln67_7  | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U8               | -   |        | mul_ln67_8  | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U24   | 1   |        | mul_ln67_9  | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U9               | -   |        | mul_ln67_10 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U25   | 1   |        | mul_ln67_11 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U10              | -   |        | mul_ln67_12 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U26   | 1   |        | mul_ln67_13 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U11              | -   |        | mul_ln67_14 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U27   | 1   |        | mul_ln67_15 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U12              | -   |        | mul_ln67_16 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U28   | 1   |        | mul_ln67_17 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U13              | -   |        | mul_ln67_18 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U29   | 1   |        | mul_ln67_19 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U14              | -   |        | mul_ln67_20 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U30   | 1   |        | mul_ln67_21 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U15              | -   |        | mul_ln67_22 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U31   | 1   |        | mul_ln67_23 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U16              | -   |        | mul_ln67_24 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U32   | 1   |        | mul_ln67_25 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U17              | -   |        | mul_ln67_26 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U33   | 1   |        | mul_ln67_27 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U18              | -   |        | mul_ln67_28 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U34   | 1   |        | mul_ln67_29 | mul  | dsp48   | 3       |
+|   mul_8s_8s_16_1_1_U19              | -   |        | mul_ln67_30 | mul  | auto    | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U35   | 1   |        | mul_ln67_31 | mul  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U20   | 1   |        | add_ln67    | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U21   | 1   |        | add_ln67_1  | add  | dsp48   | 3       |
+|   add_ln67_2_fu_2027_p2             | -   |        | add_ln67_2  | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U22   | 1   |        | add_ln67_3  | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U23   | 1   |        | add_ln67_4  | add  | dsp48   | 3       |
+|   add_ln67_5_fu_2138_p2             | -   |        | add_ln67_5  | add  | fabric  | 0       |
+|   add_ln67_6_fu_2148_p2             | -   |        | add_ln67_6  | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U24   | 1   |        | add_ln67_7  | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U25   | 1   |        | add_ln67_8  | add  | dsp48   | 3       |
+|   add_ln67_9_fu_2254_p2             | -   |        | add_ln67_9  | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U26   | 1   |        | add_ln67_10 | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U27   | 1   |        | add_ln67_11 | add  | dsp48   | 3       |
+|   add_ln67_12_fu_2320_p2            | -   |        | add_ln67_12 | add  | fabric  | 0       |
+|   add_ln67_13_fu_2330_p2            | -   |        | add_ln67_13 | add  | fabric  | 0       |
+|   add_ln67_14_fu_2340_p2            | -   |        | add_ln67_14 | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U28   | 1   |        | add_ln67_15 | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U29   | 1   |        | add_ln67_16 | add  | dsp48   | 3       |
+|   add_ln67_17_fu_2400_p2            | -   |        | add_ln67_17 | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U30   | 1   |        | add_ln67_18 | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U31   | 1   |        | add_ln67_19 | add  | dsp48   | 3       |
+|   add_ln67_20_fu_2463_p2            | -   |        | add_ln67_20 | add  | fabric  | 0       |
+|   add_ln67_21_fu_2473_p2            | -   |        | add_ln67_21 | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U32   | 1   |        | add_ln67_22 | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U33   | 1   |        | add_ln67_23 | add  | dsp48   | 3       |
+|   add_ln67_24_fu_2523_p2            | -   |        | add_ln67_24 | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_16s_17_4_1_U34   | 1   |        | add_ln67_25 | add  | dsp48   | 3       |
+|   mac_muladd_8s_8s_16s_17_4_1_U35   | 1   |        | add_ln67_26 | add  | dsp48   | 3       |
+|   add_ln67_27_fu_2560_p2            | -   |        | add_ln67_27 | add  | fabric  | 0       |
+|   add_ln67_28_fu_2570_p2            | -   |        | add_ln67_28 | add  | fabric  | 0       |
+|   add_ln67_29_fu_2580_p2            | -   |        | add_ln67_29 | add  | fabric  | 0       |
+|   add_ln67_30_fu_2590_p2            | -   |        | add_ln67_30 | add  | fabric  | 0       |
+|   add_ln22_fu_1017_p2               | -   |        | add_ln22    | add  | fabric  | 0       |
+|   sub_ln34_fu_1209_p2               | -   |        | sub_ln34    | sub  | fabric  | 0       |
+|   add_ln22_1_fu_1379_p2             | -   |        | add_ln22_1  | add  | fabric  | 0       |
+|   sub_ln34_1_fu_1571_p2             | -   |        | sub_ln34_1  | sub  | fabric  | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul         | fmul | maxdsp  | 3       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul1        | fmul | maxdsp  | 3       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U1 | 2   |        | sumf_1      | fadd | fulldsp | 4       |
++-------------------------------------+-----+--------+-------------+------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------------+------------------------------+-------------------------------------+
+| Type           | Options                      | Location                            |
++----------------+------------------------------+-------------------------------------+
+| interface      | mode=ap_ctrl_hs port=return  | dot_q8_0.cpp:45 in dot_q8_0, return |
+| interface      | mode=ap_none port=nb         | dot_q8_0.cpp:46 in dot_q8_0, nb     |
+| interface      | mode=bram port=xq depth=4864 | dot_q8_0.cpp:48 in dot_q8_0, xq     |
+| interface      | mode=bram port=yq depth=4864 | dot_q8_0.cpp:49 in dot_q8_0, yq     |
+| interface      | mode=bram port=xd depth=152  | dot_q8_0.cpp:50 in dot_q8_0, xd     |
+| interface      | mode=bram port=yd depth=152  | dot_q8_0.cpp:51 in dot_q8_0, yd     |
+| loop_tripcount | min=28 max=152               | dot_q8_0.cpp:62 in dot_q8_0         |
++----------------+------------------------------+-------------------------------------+
+
+

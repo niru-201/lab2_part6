@@ -1,0 +1,39 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_7/run_hls.tcl:16:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=dot_q8_0" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_7/directives.tcl:2:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="cyclic dim=1 factor=8 variable=xq" ARG_PragmaType="array_reshape" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_7/directives.tcl:3:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="cyclic dim=1 factor=8 variable=yq" ARG_PragmaType="array_reshape" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:45:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=ap_ctrl_hs port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:46:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=ap_none port=nb" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=bram port=xq depth=4864" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:49:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=bram port=yq depth=4864" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:50:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=bram port=xd depth=152" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:51:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=bram port=yd depth=152" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="dot_q8_0.cpp:62:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="dot_q8_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=28 max=152" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="dot_q8_0.cpp:44:0" msg_body="Applying array_reshape to 'xq': Cyclic reshaping with factor 8 on dimension 1.">
+        <args Dim="1" Factor="8" Mode="Cyclic" UOName="xq"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="dot_q8_0.cpp:44:0" msg_body="Applying array_reshape to 'yq': Cyclic reshaping with factor 8 on dimension 1.">
+        <args Dim="1" Factor="8" Mode="Cyclic" UOName="yq"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

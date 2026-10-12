@@ -1,0 +1,523 @@
+
+
+================================================================
+== Vitis HLS Report for 'dot_q8_0_Pipeline_ELEM_LOOP'
+================================================================
+* Date:           Sun Oct 11 17:42:38 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        hls_dot
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu3eg-sbva484-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.513 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       23|       23|  0.230 us|  0.230 us|   23|   23|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- ELEM_LOOP  |       21|       21|        14|          8|          1|     2|       yes|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 8, depth = 14
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 1
+  Pipeline-0 : II = 8, D = 14, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.37>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%sumi = alloca i32 1"   --->   Operation 17 'alloca' 'sumi' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%j = alloca i32 1"   --->   Operation 18 'alloca' 'j' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %yq, void @empty_1, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %xq, void @empty_1, i32 0, i32 0, void @empty_0, i32 4294967295, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%ib_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %ib"   --->   Operation 21 'read' 'ib_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%tmp_read = read i13 @_ssdm_op_Read.ap_auto.i13, i13 %tmp"   --->   Operation 22 'read' 'tmp_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.48ns)   --->   "%store_ln0 = store i6 0, i6 %j"   --->   Operation 23 'store' 'store_ln0' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 24 [1/1] (0.48ns)   --->   "%store_ln0 = store i21 0, i21 %sumi"   --->   Operation 24 'store' 'store_ln0' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc"   --->   Operation 25 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%j_1 = load i6 %j" [dot_q8_0.cpp:66]   --->   Operation 26 'load' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_1 = bitselect i1 @_ssdm_op_BitSelect.i1.i6.i32, i6 %j_1, i32 5" [dot_q8_0.cpp:66]   --->   Operation 27 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 28 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%br_ln66 = br i1 %tmp_1, void %for.inc.split, void %for.inc22.exitStub" [dot_q8_0.cpp:66]   --->   Operation 29 'br' 'br_ln66' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln66 = trunc i6 %j_1" [dot_q8_0.cpp:66]   --->   Operation 30 'trunc' 'trunc_ln66' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%or_ln67 = or i5 %trunc_ln66, i5 1" [dot_q8_0.cpp:67]   --->   Operation 31 'or' 'or_ln67' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%add_ln67_1 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67" [dot_q8_0.cpp:67]   --->   Operation 32 'bitconcatenate' 'add_ln67_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%zext_ln67_1 = zext i13 %add_ln67_1" [dot_q8_0.cpp:67]   --->   Operation 33 'zext' 'zext_ln67_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%xq_addr_1 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_1" [dot_q8_0.cpp:67]   --->   Operation 34 'getelementptr' 'xq_addr_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 35 [2/2] (1.35ns)   --->   "%xq_load_1 = load i13 %xq_addr_1" [dot_q8_0.cpp:67]   --->   Operation 35 'load' 'xq_load_1' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%yq_addr_1 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_1" [dot_q8_0.cpp:67]   --->   Operation 36 'getelementptr' 'yq_addr_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 37 [2/2] (1.35ns)   --->   "%yq_load_1 = load i13 %yq_addr_1" [dot_q8_0.cpp:67]   --->   Operation 37 'load' 'yq_load_1' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%or_ln67_2 = or i5 %trunc_ln66, i5 3" [dot_q8_0.cpp:67]   --->   Operation 38 'or' 'or_ln67_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%add_ln67_3 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 39 'bitconcatenate' 'add_ln67_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%zext_ln67_3 = zext i13 %add_ln67_3" [dot_q8_0.cpp:67]   --->   Operation 40 'zext' 'zext_ln67_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%xq_addr_3 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_3" [dot_q8_0.cpp:67]   --->   Operation 41 'getelementptr' 'xq_addr_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 42 [2/2] (1.35ns)   --->   "%xq_load_3 = load i13 %xq_addr_3" [dot_q8_0.cpp:67]   --->   Operation 42 'load' 'xq_load_3' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%yq_addr_3 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_3" [dot_q8_0.cpp:67]   --->   Operation 43 'getelementptr' 'yq_addr_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_1 : Operation 44 [2/2] (1.35ns)   --->   "%yq_load_3 = load i13 %yq_addr_3" [dot_q8_0.cpp:67]   --->   Operation 44 'load' 'yq_load_3' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_1 : Operation 45 [1/1] (0.88ns)   --->   "%add_ln66 = add i6 %j_1, i6 16" [dot_q8_0.cpp:66]   --->   Operation 45 'add' 'add_ln66' <Predicate = (!tmp_1)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 46 [1/1] (0.48ns)   --->   "%store_ln66 = store i6 %add_ln66, i6 %j" [dot_q8_0.cpp:66]   --->   Operation 46 'store' 'store_ln66' <Predicate = (!tmp_1)> <Delay = 0.48>
+
+State 2 <SV = 1> <Delay = 1.35>
+ST_2 : Operation 47 [1/2] (1.35ns)   --->   "%xq_load_1 = load i13 %xq_addr_1" [dot_q8_0.cpp:67]   --->   Operation 47 'load' 'xq_load_1' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 48 [1/2] (1.35ns)   --->   "%yq_load_1 = load i13 %yq_addr_1" [dot_q8_0.cpp:67]   --->   Operation 48 'load' 'yq_load_1' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 49 [1/2] (1.35ns)   --->   "%xq_load_3 = load i13 %xq_addr_3" [dot_q8_0.cpp:67]   --->   Operation 49 'load' 'xq_load_3' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 50 [1/2] (1.35ns)   --->   "%yq_load_3 = load i13 %yq_addr_3" [dot_q8_0.cpp:67]   --->   Operation 50 'load' 'yq_load_3' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%or_ln67_4 = or i5 %trunc_ln66, i5 5" [dot_q8_0.cpp:67]   --->   Operation 51 'or' 'or_ln67_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%add_ln67_5 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_4" [dot_q8_0.cpp:67]   --->   Operation 52 'bitconcatenate' 'add_ln67_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%zext_ln67_5 = zext i13 %add_ln67_5" [dot_q8_0.cpp:67]   --->   Operation 53 'zext' 'zext_ln67_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%xq_addr_5 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_5" [dot_q8_0.cpp:67]   --->   Operation 54 'getelementptr' 'xq_addr_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 55 [2/2] (1.35ns)   --->   "%xq_load_5 = load i13 %xq_addr_5" [dot_q8_0.cpp:67]   --->   Operation 55 'load' 'xq_load_5' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%yq_addr_5 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_5" [dot_q8_0.cpp:67]   --->   Operation 56 'getelementptr' 'yq_addr_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 57 [2/2] (1.35ns)   --->   "%yq_load_5 = load i13 %yq_addr_5" [dot_q8_0.cpp:67]   --->   Operation 57 'load' 'yq_load_5' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%or_ln67_6 = or i5 %trunc_ln66, i5 7" [dot_q8_0.cpp:67]   --->   Operation 58 'or' 'or_ln67_6' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%add_ln67_7 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 59 'bitconcatenate' 'add_ln67_7' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln67_7 = zext i13 %add_ln67_7" [dot_q8_0.cpp:67]   --->   Operation 60 'zext' 'zext_ln67_7' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%xq_addr_7 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_7" [dot_q8_0.cpp:67]   --->   Operation 61 'getelementptr' 'xq_addr_7' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 62 [2/2] (1.35ns)   --->   "%xq_load_7 = load i13 %xq_addr_7" [dot_q8_0.cpp:67]   --->   Operation 62 'load' 'xq_load_7' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%yq_addr_7 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_7" [dot_q8_0.cpp:67]   --->   Operation 63 'getelementptr' 'yq_addr_7' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_2 : Operation 64 [2/2] (1.35ns)   --->   "%yq_load_7 = load i13 %yq_addr_7" [dot_q8_0.cpp:67]   --->   Operation 64 'load' 'yq_load_7' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+
+State 3 <SV = 2> <Delay = 1.35>
+ST_3 : Operation 65 [1/2] (1.35ns)   --->   "%xq_load_5 = load i13 %xq_addr_5" [dot_q8_0.cpp:67]   --->   Operation 65 'load' 'xq_load_5' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 66 [1/2] (1.35ns)   --->   "%yq_load_5 = load i13 %yq_addr_5" [dot_q8_0.cpp:67]   --->   Operation 66 'load' 'yq_load_5' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 67 [1/2] (1.35ns)   --->   "%xq_load_7 = load i13 %xq_addr_7" [dot_q8_0.cpp:67]   --->   Operation 67 'load' 'xq_load_7' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 68 [1/2] (1.35ns)   --->   "%yq_load_7 = load i13 %yq_addr_7" [dot_q8_0.cpp:67]   --->   Operation 68 'load' 'yq_load_7' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%or_ln67_8 = or i5 %trunc_ln66, i5 9" [dot_q8_0.cpp:67]   --->   Operation 69 'or' 'or_ln67_8' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%add_ln67_9 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_8" [dot_q8_0.cpp:67]   --->   Operation 70 'bitconcatenate' 'add_ln67_9' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%zext_ln67_9 = zext i13 %add_ln67_9" [dot_q8_0.cpp:67]   --->   Operation 71 'zext' 'zext_ln67_9' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%xq_addr_9 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_9" [dot_q8_0.cpp:67]   --->   Operation 72 'getelementptr' 'xq_addr_9' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 73 [2/2] (1.35ns)   --->   "%xq_load_9 = load i13 %xq_addr_9" [dot_q8_0.cpp:67]   --->   Operation 73 'load' 'xq_load_9' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%yq_addr_9 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_9" [dot_q8_0.cpp:67]   --->   Operation 74 'getelementptr' 'yq_addr_9' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 75 [2/2] (1.35ns)   --->   "%yq_load_9 = load i13 %yq_addr_9" [dot_q8_0.cpp:67]   --->   Operation 75 'load' 'yq_load_9' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%or_ln67_10 = or i5 %trunc_ln66, i5 11" [dot_q8_0.cpp:67]   --->   Operation 76 'or' 'or_ln67_10' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%add_ln67_10 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 77 'bitconcatenate' 'add_ln67_10' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln67_11 = zext i13 %add_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 78 'zext' 'zext_ln67_11' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%xq_addr_11 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_11" [dot_q8_0.cpp:67]   --->   Operation 79 'getelementptr' 'xq_addr_11' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 80 [2/2] (1.35ns)   --->   "%xq_load_11 = load i13 %xq_addr_11" [dot_q8_0.cpp:67]   --->   Operation 80 'load' 'xq_load_11' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%yq_addr_11 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_11" [dot_q8_0.cpp:67]   --->   Operation 81 'getelementptr' 'yq_addr_11' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_3 : Operation 82 [2/2] (1.35ns)   --->   "%yq_load_11 = load i13 %yq_addr_11" [dot_q8_0.cpp:67]   --->   Operation 82 'load' 'yq_load_11' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+
+State 4 <SV = 3> <Delay = 1.35>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%sext_ln67_2 = sext i8 %xq_load_1" [dot_q8_0.cpp:67]   --->   Operation 83 'sext' 'sext_ln67_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 84 [1/1] (0.00ns)   --->   "%sext_ln67_3 = sext i8 %yq_load_1" [dot_q8_0.cpp:67]   --->   Operation 84 'sext' 'sext_ln67_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 85 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_15)   --->   "%mul_ln67_1 = mul i16 %sext_ln67_3, i16 %sext_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 85 'mul' 'mul_ln67_1' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 86 [1/2] (1.35ns)   --->   "%xq_load_9 = load i13 %xq_addr_9" [dot_q8_0.cpp:67]   --->   Operation 86 'load' 'xq_load_9' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 87 [1/2] (1.35ns)   --->   "%yq_load_9 = load i13 %yq_addr_9" [dot_q8_0.cpp:67]   --->   Operation 87 'load' 'yq_load_9' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 88 [1/2] (1.35ns)   --->   "%xq_load_11 = load i13 %xq_addr_11" [dot_q8_0.cpp:67]   --->   Operation 88 'load' 'xq_load_11' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 89 [1/2] (1.35ns)   --->   "%yq_load_11 = load i13 %yq_addr_11" [dot_q8_0.cpp:67]   --->   Operation 89 'load' 'yq_load_11' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "%or_ln67_12 = or i5 %trunc_ln66, i5 13" [dot_q8_0.cpp:67]   --->   Operation 90 'or' 'or_ln67_12' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%add_ln67_12 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_12" [dot_q8_0.cpp:67]   --->   Operation 91 'bitconcatenate' 'add_ln67_12' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln67_13 = zext i13 %add_ln67_12" [dot_q8_0.cpp:67]   --->   Operation 92 'zext' 'zext_ln67_13' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 93 [1/1] (0.00ns)   --->   "%xq_addr_13 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_13" [dot_q8_0.cpp:67]   --->   Operation 93 'getelementptr' 'xq_addr_13' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 94 [2/2] (1.35ns)   --->   "%xq_load_13 = load i13 %xq_addr_13" [dot_q8_0.cpp:67]   --->   Operation 94 'load' 'xq_load_13' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 95 [1/1] (0.00ns)   --->   "%yq_addr_13 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_13" [dot_q8_0.cpp:67]   --->   Operation 95 'getelementptr' 'yq_addr_13' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 96 [2/2] (1.35ns)   --->   "%yq_load_13 = load i13 %yq_addr_13" [dot_q8_0.cpp:67]   --->   Operation 96 'load' 'yq_load_13' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 97 [1/1] (0.00ns)   --->   "%or_ln67_14 = or i5 %trunc_ln66, i5 15" [dot_q8_0.cpp:67]   --->   Operation 97 'or' 'or_ln67_14' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 98 [1/1] (0.00ns)   --->   "%add_ln67_14 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 98 'bitconcatenate' 'add_ln67_14' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "%zext_ln67_15 = zext i13 %add_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 99 'zext' 'zext_ln67_15' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 100 [1/1] (0.00ns)   --->   "%xq_addr_15 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_15" [dot_q8_0.cpp:67]   --->   Operation 100 'getelementptr' 'xq_addr_15' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 101 [2/2] (1.35ns)   --->   "%xq_load_15 = load i13 %xq_addr_15" [dot_q8_0.cpp:67]   --->   Operation 101 'load' 'xq_load_15' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_4 : Operation 102 [1/1] (0.00ns)   --->   "%yq_addr_15 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_15" [dot_q8_0.cpp:67]   --->   Operation 102 'getelementptr' 'yq_addr_15' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_4 : Operation 103 [2/2] (1.35ns)   --->   "%yq_load_15 = load i13 %yq_addr_15" [dot_q8_0.cpp:67]   --->   Operation 103 'load' 'yq_load_15' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+
+State 5 <SV = 4> <Delay = 2.32>
+ST_5 : Operation 104 [1/1] (0.00ns)   --->   "%zext_ln66 = zext i6 %j_1" [dot_q8_0.cpp:66]   --->   Operation 104 'zext' 'zext_ln66' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 105 [1/1] (0.97ns)   --->   "%add_ln67 = add i13 %zext_ln66, i13 %tmp_read" [dot_q8_0.cpp:67]   --->   Operation 105 'add' 'add_ln67' <Predicate = (!tmp_1)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 106 [1/1] (0.00ns)   --->   "%zext_ln67 = zext i13 %add_ln67" [dot_q8_0.cpp:67]   --->   Operation 106 'zext' 'zext_ln67' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 107 [1/1] (0.00ns)   --->   "%xq_addr = getelementptr i8 %xq, i64 0, i64 %zext_ln67" [dot_q8_0.cpp:67]   --->   Operation 107 'getelementptr' 'xq_addr' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 108 [2/2] (1.35ns)   --->   "%xq_load = load i13 %xq_addr" [dot_q8_0.cpp:67]   --->   Operation 108 'load' 'xq_load' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 109 [1/1] (0.00ns)   --->   "%yq_addr = getelementptr i8 %yq, i64 0, i64 %zext_ln67" [dot_q8_0.cpp:67]   --->   Operation 109 'getelementptr' 'yq_addr' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 110 [2/2] (1.35ns)   --->   "%yq_load = load i13 %yq_addr" [dot_q8_0.cpp:67]   --->   Operation 110 'load' 'yq_load' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 111 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_15)   --->   "%mul_ln67_1 = mul i16 %sext_ln67_3, i16 %sext_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 111 'mul' 'mul_ln67_1' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 112 [1/1] (0.00ns)   --->   "%or_ln67_1 = or i5 %trunc_ln66, i5 2" [dot_q8_0.cpp:67]   --->   Operation 112 'or' 'or_ln67_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 113 [1/1] (0.00ns)   --->   "%add_ln67_2 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_1" [dot_q8_0.cpp:67]   --->   Operation 113 'bitconcatenate' 'add_ln67_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 114 [1/1] (0.00ns)   --->   "%zext_ln67_2 = zext i13 %add_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 114 'zext' 'zext_ln67_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 115 [1/1] (0.00ns)   --->   "%xq_addr_2 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 115 'getelementptr' 'xq_addr_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 116 [2/2] (1.35ns)   --->   "%xq_load_2 = load i13 %xq_addr_2" [dot_q8_0.cpp:67]   --->   Operation 116 'load' 'xq_load_2' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 117 [1/1] (0.00ns)   --->   "%yq_addr_2 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 117 'getelementptr' 'yq_addr_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 118 [2/2] (1.35ns)   --->   "%yq_load_2 = load i13 %yq_addr_2" [dot_q8_0.cpp:67]   --->   Operation 118 'load' 'yq_load_2' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 119 [1/1] (0.00ns)   --->   "%sext_ln67_6 = sext i8 %xq_load_3" [dot_q8_0.cpp:67]   --->   Operation 119 'sext' 'sext_ln67_6' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 120 [1/1] (0.00ns)   --->   "%sext_ln67_7 = sext i8 %yq_load_3" [dot_q8_0.cpp:67]   --->   Operation 120 'sext' 'sext_ln67_7' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_5 : Operation 121 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_16)   --->   "%mul_ln67_3 = mul i16 %sext_ln67_7, i16 %sext_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 121 'mul' 'mul_ln67_3' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 122 [1/2] (1.35ns)   --->   "%xq_load_13 = load i13 %xq_addr_13" [dot_q8_0.cpp:67]   --->   Operation 122 'load' 'xq_load_13' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 123 [1/2] (1.35ns)   --->   "%yq_load_13 = load i13 %yq_addr_13" [dot_q8_0.cpp:67]   --->   Operation 123 'load' 'yq_load_13' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 124 [1/2] (1.35ns)   --->   "%xq_load_15 = load i13 %xq_addr_15" [dot_q8_0.cpp:67]   --->   Operation 124 'load' 'xq_load_15' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_5 : Operation 125 [1/2] (1.35ns)   --->   "%yq_load_15 = load i13 %yq_addr_15" [dot_q8_0.cpp:67]   --->   Operation 125 'load' 'yq_load_15' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+
+State 6 <SV = 5> <Delay = 4.35>
+ST_6 : Operation 126 [1/2] (1.35ns)   --->   "%xq_load = load i13 %xq_addr" [dot_q8_0.cpp:67]   --->   Operation 126 'load' 'xq_load' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 127 [1/1] (0.00ns)   --->   "%sext_ln67 = sext i8 %xq_load" [dot_q8_0.cpp:67]   --->   Operation 127 'sext' 'sext_ln67' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 128 [1/2] (1.35ns)   --->   "%yq_load = load i13 %yq_addr" [dot_q8_0.cpp:67]   --->   Operation 128 'load' 'yq_load' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 129 [1/1] (0.00ns)   --->   "%sext_ln67_1 = sext i8 %yq_load" [dot_q8_0.cpp:67]   --->   Operation 129 'sext' 'sext_ln67_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 130 [1/1] (2.17ns)   --->   "%mul_ln67 = mul i16 %sext_ln67_1, i16 %sext_ln67" [dot_q8_0.cpp:67]   --->   Operation 130 'mul' 'mul_ln67' <Predicate = (!tmp_1)> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 131 [1/1] (0.00ns)   --->   "%sext_ln66 = sext i16 %mul_ln67" [dot_q8_0.cpp:66]   --->   Operation 131 'sext' 'sext_ln66' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 132 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_15)   --->   "%mul_ln67_1 = mul i16 %sext_ln67_3, i16 %sext_ln67_2" [dot_q8_0.cpp:67]   --->   Operation 132 'mul' 'mul_ln67_1' <Predicate = (!tmp_1)> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 133 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_15)   --->   "%sext_ln66_1 = sext i16 %mul_ln67_1" [dot_q8_0.cpp:66]   --->   Operation 133 'sext' 'sext_ln66_1' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 134 [1/2] (1.35ns)   --->   "%xq_load_2 = load i13 %xq_addr_2" [dot_q8_0.cpp:67]   --->   Operation 134 'load' 'xq_load_2' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 135 [1/2] (1.35ns)   --->   "%yq_load_2 = load i13 %yq_addr_2" [dot_q8_0.cpp:67]   --->   Operation 135 'load' 'yq_load_2' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 136 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_16)   --->   "%mul_ln67_3 = mul i16 %sext_ln67_7, i16 %sext_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 136 'mul' 'mul_ln67_3' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 137 [1/1] (0.00ns)   --->   "%or_ln67_3 = or i5 %trunc_ln66, i5 4" [dot_q8_0.cpp:67]   --->   Operation 137 'or' 'or_ln67_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 138 [1/1] (0.00ns)   --->   "%add_ln67_4 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_3" [dot_q8_0.cpp:67]   --->   Operation 138 'bitconcatenate' 'add_ln67_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 139 [1/1] (0.00ns)   --->   "%zext_ln67_4 = zext i13 %add_ln67_4" [dot_q8_0.cpp:67]   --->   Operation 139 'zext' 'zext_ln67_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 140 [1/1] (0.00ns)   --->   "%xq_addr_4 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_4" [dot_q8_0.cpp:67]   --->   Operation 140 'getelementptr' 'xq_addr_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 141 [2/2] (1.35ns)   --->   "%xq_load_4 = load i13 %xq_addr_4" [dot_q8_0.cpp:67]   --->   Operation 141 'load' 'xq_load_4' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 142 [1/1] (0.00ns)   --->   "%yq_addr_4 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_4" [dot_q8_0.cpp:67]   --->   Operation 142 'getelementptr' 'yq_addr_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 143 [2/2] (1.35ns)   --->   "%yq_load_4 = load i13 %yq_addr_4" [dot_q8_0.cpp:67]   --->   Operation 143 'load' 'yq_load_4' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 144 [1/1] (0.00ns)   --->   "%sext_ln67_10 = sext i8 %xq_load_5" [dot_q8_0.cpp:67]   --->   Operation 144 'sext' 'sext_ln67_10' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 145 [1/1] (0.00ns)   --->   "%sext_ln67_11 = sext i8 %yq_load_5" [dot_q8_0.cpp:67]   --->   Operation 145 'sext' 'sext_ln67_11' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 146 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_18)   --->   "%mul_ln67_5 = mul i16 %sext_ln67_11, i16 %sext_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 146 'mul' 'mul_ln67_5' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 147 [1/1] (0.00ns)   --->   "%or_ln67_5 = or i5 %trunc_ln66, i5 6" [dot_q8_0.cpp:67]   --->   Operation 147 'or' 'or_ln67_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 148 [1/1] (0.00ns)   --->   "%add_ln67_6 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_5" [dot_q8_0.cpp:67]   --->   Operation 148 'bitconcatenate' 'add_ln67_6' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 149 [1/1] (0.00ns)   --->   "%zext_ln67_6 = zext i13 %add_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 149 'zext' 'zext_ln67_6' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 150 [1/1] (0.00ns)   --->   "%xq_addr_6 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 150 'getelementptr' 'xq_addr_6' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 151 [2/2] (1.35ns)   --->   "%xq_load_6 = load i13 %xq_addr_6" [dot_q8_0.cpp:67]   --->   Operation 151 'load' 'xq_load_6' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 152 [1/1] (0.00ns)   --->   "%yq_addr_6 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 152 'getelementptr' 'yq_addr_6' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_6 : Operation 153 [2/2] (1.35ns)   --->   "%yq_load_6 = load i13 %yq_addr_6" [dot_q8_0.cpp:67]   --->   Operation 153 'load' 'yq_load_6' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_6 : Operation 154 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_15 = add i17 %sext_ln66, i17 %sext_ln66_1" [dot_q8_0.cpp:67]   --->   Operation 154 'add' 'add_ln67_15' <Predicate = (!tmp_1)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 301 [1/1] (0.00ns)   --->   "%sumi_load_1 = load i21 %sumi"   --->   Operation 301 'load' 'sumi_load_1' <Predicate = (tmp_1)> <Delay = 0.00>
+ST_6 : Operation 302 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i21P0A, i21 %sumi_out, i21 %sumi_load_1"   --->   Operation 302 'write' 'write_ln0' <Predicate = (tmp_1)> <Delay = 0.00>
+ST_6 : Operation 303 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 303 'ret' 'ret_ln0' <Predicate = (tmp_1)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 3.00>
+ST_7 : Operation 155 [1/1] (0.00ns)   --->   "%sext_ln67_4 = sext i8 %xq_load_2" [dot_q8_0.cpp:67]   --->   Operation 155 'sext' 'sext_ln67_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 156 [1/1] (0.00ns)   --->   "%sext_ln67_5 = sext i8 %yq_load_2" [dot_q8_0.cpp:67]   --->   Operation 156 'sext' 'sext_ln67_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 157 [1/1] (2.17ns)   --->   "%mul_ln67_2 = mul i16 %sext_ln67_5, i16 %sext_ln67_4" [dot_q8_0.cpp:67]   --->   Operation 157 'mul' 'mul_ln67_2' <Predicate = (!tmp_1)> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 158 [1/1] (0.00ns)   --->   "%sext_ln66_2 = sext i16 %mul_ln67_2" [dot_q8_0.cpp:66]   --->   Operation 158 'sext' 'sext_ln66_2' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 159 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_16)   --->   "%mul_ln67_3 = mul i16 %sext_ln67_7, i16 %sext_ln67_6" [dot_q8_0.cpp:67]   --->   Operation 159 'mul' 'mul_ln67_3' <Predicate = (!tmp_1)> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 160 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_16)   --->   "%sext_ln66_3 = sext i16 %mul_ln67_3" [dot_q8_0.cpp:66]   --->   Operation 160 'sext' 'sext_ln66_3' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 161 [1/2] (1.35ns)   --->   "%xq_load_4 = load i13 %xq_addr_4" [dot_q8_0.cpp:67]   --->   Operation 161 'load' 'xq_load_4' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 162 [1/2] (1.35ns)   --->   "%yq_load_4 = load i13 %yq_addr_4" [dot_q8_0.cpp:67]   --->   Operation 162 'load' 'yq_load_4' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 163 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_18)   --->   "%mul_ln67_5 = mul i16 %sext_ln67_11, i16 %sext_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 163 'mul' 'mul_ln67_5' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 164 [1/2] (1.35ns)   --->   "%xq_load_6 = load i13 %xq_addr_6" [dot_q8_0.cpp:67]   --->   Operation 164 'load' 'xq_load_6' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 165 [1/2] (1.35ns)   --->   "%yq_load_6 = load i13 %yq_addr_6" [dot_q8_0.cpp:67]   --->   Operation 165 'load' 'yq_load_6' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 166 [1/1] (0.00ns)   --->   "%sext_ln67_14 = sext i8 %xq_load_7" [dot_q8_0.cpp:67]   --->   Operation 166 'sext' 'sext_ln67_14' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 167 [1/1] (0.00ns)   --->   "%sext_ln67_15 = sext i8 %yq_load_7" [dot_q8_0.cpp:67]   --->   Operation 167 'sext' 'sext_ln67_15' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 168 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_19)   --->   "%mul_ln67_7 = mul i16 %sext_ln67_15, i16 %sext_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 168 'mul' 'mul_ln67_7' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 169 [1/1] (0.00ns)   --->   "%or_ln67_7 = or i5 %trunc_ln66, i5 8" [dot_q8_0.cpp:67]   --->   Operation 169 'or' 'or_ln67_7' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 170 [1/1] (0.00ns)   --->   "%add_ln67_8 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_7" [dot_q8_0.cpp:67]   --->   Operation 170 'bitconcatenate' 'add_ln67_8' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 171 [1/1] (0.00ns)   --->   "%zext_ln67_8 = zext i13 %add_ln67_8" [dot_q8_0.cpp:67]   --->   Operation 171 'zext' 'zext_ln67_8' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 172 [1/1] (0.00ns)   --->   "%xq_addr_8 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_8" [dot_q8_0.cpp:67]   --->   Operation 172 'getelementptr' 'xq_addr_8' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 173 [2/2] (1.35ns)   --->   "%xq_load_8 = load i13 %xq_addr_8" [dot_q8_0.cpp:67]   --->   Operation 173 'load' 'xq_load_8' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 174 [1/1] (0.00ns)   --->   "%yq_addr_8 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_8" [dot_q8_0.cpp:67]   --->   Operation 174 'getelementptr' 'yq_addr_8' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 175 [2/2] (1.35ns)   --->   "%yq_load_8 = load i13 %yq_addr_8" [dot_q8_0.cpp:67]   --->   Operation 175 'load' 'yq_load_8' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 176 [1/1] (0.00ns)   --->   "%or_ln67_9 = or i5 %trunc_ln66, i5 10" [dot_q8_0.cpp:67]   --->   Operation 176 'or' 'or_ln67_9' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 177 [1/1] (0.00ns)   --->   "%add_ln67_s = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_9" [dot_q8_0.cpp:67]   --->   Operation 177 'bitconcatenate' 'add_ln67_s' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 178 [1/1] (0.00ns)   --->   "%zext_ln67_10 = zext i13 %add_ln67_s" [dot_q8_0.cpp:67]   --->   Operation 178 'zext' 'zext_ln67_10' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 179 [1/1] (0.00ns)   --->   "%xq_addr_10 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 179 'getelementptr' 'xq_addr_10' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 180 [2/2] (1.35ns)   --->   "%xq_load_10 = load i13 %xq_addr_10" [dot_q8_0.cpp:67]   --->   Operation 180 'load' 'xq_load_10' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 181 [1/1] (0.00ns)   --->   "%yq_addr_10 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 181 'getelementptr' 'yq_addr_10' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_7 : Operation 182 [2/2] (1.35ns)   --->   "%yq_load_10 = load i13 %yq_addr_10" [dot_q8_0.cpp:67]   --->   Operation 182 'load' 'yq_load_10' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_7 : Operation 183 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_15 = add i17 %sext_ln66, i17 %sext_ln66_1" [dot_q8_0.cpp:67]   --->   Operation 183 'add' 'add_ln67_15' <Predicate = (!tmp_1)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 184 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_16 = add i17 %sext_ln66_2, i17 %sext_ln66_3" [dot_q8_0.cpp:67]   --->   Operation 184 'add' 'add_ln67_16' <Predicate = (!tmp_1)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 8 <SV = 7> <Delay = 3.00>
+ST_8 : Operation 185 [1/1] (0.00ns)   --->   "%sext_ln67_8 = sext i8 %xq_load_4" [dot_q8_0.cpp:67]   --->   Operation 185 'sext' 'sext_ln67_8' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 186 [1/1] (0.00ns)   --->   "%sext_ln67_9 = sext i8 %yq_load_4" [dot_q8_0.cpp:67]   --->   Operation 186 'sext' 'sext_ln67_9' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 187 [1/1] (2.17ns)   --->   "%mul_ln67_4 = mul i16 %sext_ln67_9, i16 %sext_ln67_8" [dot_q8_0.cpp:67]   --->   Operation 187 'mul' 'mul_ln67_4' <Predicate = (!tmp_1)> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 188 [1/1] (0.00ns)   --->   "%sext_ln66_4 = sext i16 %mul_ln67_4" [dot_q8_0.cpp:66]   --->   Operation 188 'sext' 'sext_ln66_4' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 189 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_18)   --->   "%mul_ln67_5 = mul i16 %sext_ln67_11, i16 %sext_ln67_10" [dot_q8_0.cpp:67]   --->   Operation 189 'mul' 'mul_ln67_5' <Predicate = (!tmp_1)> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 190 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_18)   --->   "%sext_ln66_5 = sext i16 %mul_ln67_5" [dot_q8_0.cpp:66]   --->   Operation 190 'sext' 'sext_ln66_5' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 191 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_19)   --->   "%mul_ln67_7 = mul i16 %sext_ln67_15, i16 %sext_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 191 'mul' 'mul_ln67_7' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 192 [1/2] (1.35ns)   --->   "%xq_load_8 = load i13 %xq_addr_8" [dot_q8_0.cpp:67]   --->   Operation 192 'load' 'xq_load_8' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 193 [1/2] (1.35ns)   --->   "%yq_load_8 = load i13 %yq_addr_8" [dot_q8_0.cpp:67]   --->   Operation 193 'load' 'yq_load_8' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 194 [1/1] (0.00ns)   --->   "%sext_ln67_18 = sext i8 %xq_load_9" [dot_q8_0.cpp:67]   --->   Operation 194 'sext' 'sext_ln67_18' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 195 [1/1] (0.00ns)   --->   "%sext_ln67_19 = sext i8 %yq_load_9" [dot_q8_0.cpp:67]   --->   Operation 195 'sext' 'sext_ln67_19' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 196 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_22)   --->   "%mul_ln67_9 = mul i16 %sext_ln67_19, i16 %sext_ln67_18" [dot_q8_0.cpp:67]   --->   Operation 196 'mul' 'mul_ln67_9' <Predicate = (!tmp_1)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 197 [1/2] (1.35ns)   --->   "%xq_load_10 = load i13 %xq_addr_10" [dot_q8_0.cpp:67]   --->   Operation 197 'load' 'xq_load_10' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 198 [1/2] (1.35ns)   --->   "%yq_load_10 = load i13 %yq_addr_10" [dot_q8_0.cpp:67]   --->   Operation 198 'load' 'yq_load_10' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 199 [1/1] (0.00ns)   --->   "%or_ln67_11 = or i5 %trunc_ln66, i5 12" [dot_q8_0.cpp:67]   --->   Operation 199 'or' 'or_ln67_11' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 200 [1/1] (0.00ns)   --->   "%add_ln67_11 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_11" [dot_q8_0.cpp:67]   --->   Operation 200 'bitconcatenate' 'add_ln67_11' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 201 [1/1] (0.00ns)   --->   "%zext_ln67_12 = zext i13 %add_ln67_11" [dot_q8_0.cpp:67]   --->   Operation 201 'zext' 'zext_ln67_12' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 202 [1/1] (0.00ns)   --->   "%xq_addr_12 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_12" [dot_q8_0.cpp:67]   --->   Operation 202 'getelementptr' 'xq_addr_12' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 203 [2/2] (1.35ns)   --->   "%xq_load_12 = load i13 %xq_addr_12" [dot_q8_0.cpp:67]   --->   Operation 203 'load' 'xq_load_12' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 204 [1/1] (0.00ns)   --->   "%yq_addr_12 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_12" [dot_q8_0.cpp:67]   --->   Operation 204 'getelementptr' 'yq_addr_12' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 205 [2/2] (1.35ns)   --->   "%yq_load_12 = load i13 %yq_addr_12" [dot_q8_0.cpp:67]   --->   Operation 205 'load' 'yq_load_12' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 206 [1/1] (0.00ns)   --->   "%or_ln67_13 = or i5 %trunc_ln66, i5 14" [dot_q8_0.cpp:67]   --->   Operation 206 'or' 'or_ln67_13' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 207 [1/1] (0.00ns)   --->   "%add_ln67_13 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i8.i5, i8 %ib_read, i5 %or_ln67_13" [dot_q8_0.cpp:67]   --->   Operation 207 'bitconcatenate' 'add_ln67_13' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 208 [1/1] (0.00ns)   --->   "%zext_ln67_14 = zext i13 %add_ln67_13" [dot_q8_0.cpp:67]   --->   Operation 208 'zext' 'zext_ln67_14' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 209 [1/1] (0.00ns)   --->   "%xq_addr_14 = getelementptr i8 %xq, i64 0, i64 %zext_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 209 'getelementptr' 'xq_addr_14' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 210 [2/2] (1.35ns)   --->   "%xq_load_14 = load i13 %xq_addr_14" [dot_q8_0.cpp:67]   --->   Operation 210 'load' 'xq_load_14' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 211 [1/1] (0.00ns)   --->   "%yq_addr_14 = getelementptr i8 %yq, i64 0, i64 %zext_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 211 'getelementptr' 'yq_addr_14' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 212 [2/2] (1.35ns)   --->   "%yq_load_14 = load i13 %yq_addr_14" [dot_q8_0.cpp:67]   --->   Operation 212 'load' 'yq_load_14' <Predicate = (!tmp_1)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_8 : Operation 213 [1/1] (0.00ns)   --->   "%sext_ln67_33 = sext i17 %add_ln67_15" [dot_q8_0.cpp:67]   --->   Operation 213 'sext' 'sext_ln67_33' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 214 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_16 = add i17 %sext_ln66_2, i17 %sext_ln66_3" [dot_q8_0.cpp:67]   --->   Operation 214 'add' 'add_ln67_16' <Predicate = (!tmp_1)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 215 [1/1] (0.00ns)   --->   "%sext_ln67_34 = sext i17 %add_ln67_16" [dot_q8_0.cpp:67]   --->   Operation 215 'sext' 'sext_ln67_34' <Predicate = (!tmp_1)> <Delay = 0.00>
+ST_8 : Operation 216 [1/1] (1.02ns)   --->   "%add_ln67_17 = add i18 %sext_ln67_34, i18 %sext_ln67_33" [dot_q8_0.cpp:67]   --->   Operation 216 'add' 'add_ln67_17' <Predicate = (!tmp_1)> <Delay = 1.02> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 217 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_18 = add i17 %sext_ln66_4, i17 %sext_ln66_5" [dot_q8_0.cpp:67]   --->   Operation 217 'add' 'add_ln67_18' <Predicate = (!tmp_1)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 9 <SV = 8> <Delay = 3.00>
+ST_9 : Operation 218 [1/1] (0.00ns)   --->   "%sext_ln67_12 = sext i8 %xq_load_6" [dot_q8_0.cpp:67]   --->   Operation 218 'sext' 'sext_ln67_12' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 219 [1/1] (0.00ns)   --->   "%sext_ln67_13 = sext i8 %yq_load_6" [dot_q8_0.cpp:67]   --->   Operation 219 'sext' 'sext_ln67_13' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 220 [1/1] (2.17ns)   --->   "%mul_ln67_6 = mul i16 %sext_ln67_13, i16 %sext_ln67_12" [dot_q8_0.cpp:67]   --->   Operation 220 'mul' 'mul_ln67_6' <Predicate = true> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 221 [1/1] (0.00ns)   --->   "%sext_ln66_6 = sext i16 %mul_ln67_6" [dot_q8_0.cpp:66]   --->   Operation 221 'sext' 'sext_ln66_6' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 222 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_19)   --->   "%mul_ln67_7 = mul i16 %sext_ln67_15, i16 %sext_ln67_14" [dot_q8_0.cpp:67]   --->   Operation 222 'mul' 'mul_ln67_7' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 223 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_19)   --->   "%sext_ln66_7 = sext i16 %mul_ln67_7" [dot_q8_0.cpp:66]   --->   Operation 223 'sext' 'sext_ln66_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 224 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_22)   --->   "%mul_ln67_9 = mul i16 %sext_ln67_19, i16 %sext_ln67_18" [dot_q8_0.cpp:67]   --->   Operation 224 'mul' 'mul_ln67_9' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 225 [1/1] (0.00ns)   --->   "%sext_ln67_22 = sext i8 %xq_load_11" [dot_q8_0.cpp:67]   --->   Operation 225 'sext' 'sext_ln67_22' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 226 [1/1] (0.00ns)   --->   "%sext_ln67_23 = sext i8 %yq_load_11" [dot_q8_0.cpp:67]   --->   Operation 226 'sext' 'sext_ln67_23' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 227 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_23)   --->   "%mul_ln67_11 = mul i16 %sext_ln67_23, i16 %sext_ln67_22" [dot_q8_0.cpp:67]   --->   Operation 227 'mul' 'mul_ln67_11' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 228 [1/2] (1.35ns)   --->   "%xq_load_12 = load i13 %xq_addr_12" [dot_q8_0.cpp:67]   --->   Operation 228 'load' 'xq_load_12' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_9 : Operation 229 [1/2] (1.35ns)   --->   "%yq_load_12 = load i13 %yq_addr_12" [dot_q8_0.cpp:67]   --->   Operation 229 'load' 'yq_load_12' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_9 : Operation 230 [1/2] (1.35ns)   --->   "%xq_load_14 = load i13 %xq_addr_14" [dot_q8_0.cpp:67]   --->   Operation 230 'load' 'xq_load_14' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_9 : Operation 231 [1/2] (1.35ns)   --->   "%yq_load_14 = load i13 %yq_addr_14" [dot_q8_0.cpp:67]   --->   Operation 231 'load' 'yq_load_14' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 4864> <RAM>
+ST_9 : Operation 232 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_18 = add i17 %sext_ln66_4, i17 %sext_ln66_5" [dot_q8_0.cpp:67]   --->   Operation 232 'add' 'add_ln67_18' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 233 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_19 = add i17 %sext_ln66_6, i17 %sext_ln66_7" [dot_q8_0.cpp:67]   --->   Operation 233 'add' 'add_ln67_19' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 10 <SV = 9> <Delay = 3.00>
+ST_10 : Operation 234 [1/1] (0.00ns)   --->   "%sext_ln67_16 = sext i8 %xq_load_8" [dot_q8_0.cpp:67]   --->   Operation 234 'sext' 'sext_ln67_16' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 235 [1/1] (0.00ns)   --->   "%sext_ln67_17 = sext i8 %yq_load_8" [dot_q8_0.cpp:67]   --->   Operation 235 'sext' 'sext_ln67_17' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 236 [1/1] (2.17ns)   --->   "%mul_ln67_8 = mul i16 %sext_ln67_17, i16 %sext_ln67_16" [dot_q8_0.cpp:67]   --->   Operation 236 'mul' 'mul_ln67_8' <Predicate = true> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 237 [1/1] (0.00ns)   --->   "%sext_ln66_8 = sext i16 %mul_ln67_8" [dot_q8_0.cpp:66]   --->   Operation 237 'sext' 'sext_ln66_8' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 238 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_22)   --->   "%mul_ln67_9 = mul i16 %sext_ln67_19, i16 %sext_ln67_18" [dot_q8_0.cpp:67]   --->   Operation 238 'mul' 'mul_ln67_9' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 239 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_22)   --->   "%sext_ln66_9 = sext i16 %mul_ln67_9" [dot_q8_0.cpp:66]   --->   Operation 239 'sext' 'sext_ln66_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 240 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_23)   --->   "%mul_ln67_11 = mul i16 %sext_ln67_23, i16 %sext_ln67_22" [dot_q8_0.cpp:67]   --->   Operation 240 'mul' 'mul_ln67_11' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 241 [1/1] (0.00ns)   --->   "%sext_ln67_26 = sext i8 %xq_load_13" [dot_q8_0.cpp:67]   --->   Operation 241 'sext' 'sext_ln67_26' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 242 [1/1] (0.00ns)   --->   "%sext_ln67_27 = sext i8 %yq_load_13" [dot_q8_0.cpp:67]   --->   Operation 242 'sext' 'sext_ln67_27' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 243 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_25)   --->   "%mul_ln67_13 = mul i16 %sext_ln67_27, i16 %sext_ln67_26" [dot_q8_0.cpp:67]   --->   Operation 243 'mul' 'mul_ln67_13' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 244 [1/1] (0.00ns)   --->   "%sext_ln67_35 = sext i18 %add_ln67_17" [dot_q8_0.cpp:67]   --->   Operation 244 'sext' 'sext_ln67_35' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 245 [1/1] (0.00ns)   --->   "%sext_ln67_36 = sext i17 %add_ln67_18" [dot_q8_0.cpp:67]   --->   Operation 245 'sext' 'sext_ln67_36' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 246 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_19 = add i17 %sext_ln66_6, i17 %sext_ln66_7" [dot_q8_0.cpp:67]   --->   Operation 246 'add' 'add_ln67_19' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 247 [1/1] (0.00ns)   --->   "%sext_ln67_37 = sext i17 %add_ln67_19" [dot_q8_0.cpp:67]   --->   Operation 247 'sext' 'sext_ln67_37' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 248 [1/1] (1.02ns)   --->   "%add_ln67_20 = add i18 %sext_ln67_37, i18 %sext_ln67_36" [dot_q8_0.cpp:67]   --->   Operation 248 'add' 'add_ln67_20' <Predicate = true> <Delay = 1.02> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 249 [1/1] (0.00ns)   --->   "%sext_ln67_38 = sext i18 %add_ln67_20" [dot_q8_0.cpp:67]   --->   Operation 249 'sext' 'sext_ln67_38' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 250 [1/1] (1.03ns)   --->   "%add_ln67_21 = add i19 %sext_ln67_38, i19 %sext_ln67_35" [dot_q8_0.cpp:67]   --->   Operation 250 'add' 'add_ln67_21' <Predicate = true> <Delay = 1.03> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 251 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_22 = add i17 %sext_ln66_8, i17 %sext_ln66_9" [dot_q8_0.cpp:67]   --->   Operation 251 'add' 'add_ln67_22' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 11 <SV = 10> <Delay = 3.00>
+ST_11 : Operation 252 [1/1] (0.00ns)   --->   "%sext_ln67_20 = sext i8 %xq_load_10" [dot_q8_0.cpp:67]   --->   Operation 252 'sext' 'sext_ln67_20' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 253 [1/1] (0.00ns)   --->   "%sext_ln67_21 = sext i8 %yq_load_10" [dot_q8_0.cpp:67]   --->   Operation 253 'sext' 'sext_ln67_21' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 254 [1/1] (2.17ns)   --->   "%mul_ln67_10 = mul i16 %sext_ln67_21, i16 %sext_ln67_20" [dot_q8_0.cpp:67]   --->   Operation 254 'mul' 'mul_ln67_10' <Predicate = true> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 255 [1/1] (0.00ns)   --->   "%sext_ln66_10 = sext i16 %mul_ln67_10" [dot_q8_0.cpp:66]   --->   Operation 255 'sext' 'sext_ln66_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 256 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_23)   --->   "%mul_ln67_11 = mul i16 %sext_ln67_23, i16 %sext_ln67_22" [dot_q8_0.cpp:67]   --->   Operation 256 'mul' 'mul_ln67_11' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 257 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_23)   --->   "%sext_ln66_11 = sext i16 %mul_ln67_11" [dot_q8_0.cpp:66]   --->   Operation 257 'sext' 'sext_ln66_11' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 258 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_25)   --->   "%mul_ln67_13 = mul i16 %sext_ln67_27, i16 %sext_ln67_26" [dot_q8_0.cpp:67]   --->   Operation 258 'mul' 'mul_ln67_13' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 259 [1/1] (0.00ns)   --->   "%sext_ln67_30 = sext i8 %xq_load_15" [dot_q8_0.cpp:67]   --->   Operation 259 'sext' 'sext_ln67_30' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 260 [1/1] (0.00ns)   --->   "%sext_ln67_31 = sext i8 %yq_load_15" [dot_q8_0.cpp:67]   --->   Operation 260 'sext' 'sext_ln67_31' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 261 [3/3] (1.08ns) (grouped into DSP with root node add_ln67_26)   --->   "%mul_ln67_15 = mul i16 %sext_ln67_31, i16 %sext_ln67_30" [dot_q8_0.cpp:67]   --->   Operation 261 'mul' 'mul_ln67_15' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 262 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_22 = add i17 %sext_ln66_8, i17 %sext_ln66_9" [dot_q8_0.cpp:67]   --->   Operation 262 'add' 'add_ln67_22' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_11 : Operation 263 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_23 = add i17 %sext_ln66_10, i17 %sext_ln66_11" [dot_q8_0.cpp:67]   --->   Operation 263 'add' 'add_ln67_23' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 12 <SV = 11> <Delay = 3.00>
+ST_12 : Operation 264 [1/1] (0.00ns)   --->   "%sext_ln67_24 = sext i8 %xq_load_12" [dot_q8_0.cpp:67]   --->   Operation 264 'sext' 'sext_ln67_24' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 265 [1/1] (0.00ns)   --->   "%sext_ln67_25 = sext i8 %yq_load_12" [dot_q8_0.cpp:67]   --->   Operation 265 'sext' 'sext_ln67_25' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 266 [1/1] (2.17ns)   --->   "%mul_ln67_12 = mul i16 %sext_ln67_25, i16 %sext_ln67_24" [dot_q8_0.cpp:67]   --->   Operation 266 'mul' 'mul_ln67_12' <Predicate = true> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 267 [1/1] (0.00ns)   --->   "%sext_ln66_12 = sext i16 %mul_ln67_12" [dot_q8_0.cpp:66]   --->   Operation 267 'sext' 'sext_ln66_12' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 268 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_25)   --->   "%mul_ln67_13 = mul i16 %sext_ln67_27, i16 %sext_ln67_26" [dot_q8_0.cpp:67]   --->   Operation 268 'mul' 'mul_ln67_13' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 269 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_25)   --->   "%sext_ln66_13 = sext i16 %mul_ln67_13" [dot_q8_0.cpp:66]   --->   Operation 269 'sext' 'sext_ln66_13' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 270 [2/3] (1.08ns) (grouped into DSP with root node add_ln67_26)   --->   "%mul_ln67_15 = mul i16 %sext_ln67_31, i16 %sext_ln67_30" [dot_q8_0.cpp:67]   --->   Operation 270 'mul' 'mul_ln67_15' <Predicate = true> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 271 [1/1] (0.00ns)   --->   "%sext_ln67_40 = sext i17 %add_ln67_22" [dot_q8_0.cpp:67]   --->   Operation 271 'sext' 'sext_ln67_40' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 272 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_23 = add i17 %sext_ln66_10, i17 %sext_ln66_11" [dot_q8_0.cpp:67]   --->   Operation 272 'add' 'add_ln67_23' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 273 [1/1] (0.00ns)   --->   "%sext_ln67_41 = sext i17 %add_ln67_23" [dot_q8_0.cpp:67]   --->   Operation 273 'sext' 'sext_ln67_41' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 274 [1/1] (1.02ns)   --->   "%add_ln67_24 = add i18 %sext_ln67_41, i18 %sext_ln67_40" [dot_q8_0.cpp:67]   --->   Operation 274 'add' 'add_ln67_24' <Predicate = true> <Delay = 1.02> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 275 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_25 = add i17 %sext_ln66_12, i17 %sext_ln66_13" [dot_q8_0.cpp:67]   --->   Operation 275 'add' 'add_ln67_25' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 13 <SV = 12> <Delay = 3.00>
+ST_13 : Operation 276 [1/1] (0.00ns)   --->   "%sext_ln67_28 = sext i8 %xq_load_14" [dot_q8_0.cpp:67]   --->   Operation 276 'sext' 'sext_ln67_28' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 277 [1/1] (0.00ns)   --->   "%sext_ln67_29 = sext i8 %yq_load_14" [dot_q8_0.cpp:67]   --->   Operation 277 'sext' 'sext_ln67_29' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 278 [1/1] (2.17ns)   --->   "%mul_ln67_14 = mul i16 %sext_ln67_29, i16 %sext_ln67_28" [dot_q8_0.cpp:67]   --->   Operation 278 'mul' 'mul_ln67_14' <Predicate = true> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.17> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 279 [1/1] (0.00ns)   --->   "%sext_ln66_14 = sext i16 %mul_ln67_14" [dot_q8_0.cpp:66]   --->   Operation 279 'sext' 'sext_ln66_14' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 280 [1/3] (0.00ns) (grouped into DSP with root node add_ln67_26)   --->   "%mul_ln67_15 = mul i16 %sext_ln67_31, i16 %sext_ln67_30" [dot_q8_0.cpp:67]   --->   Operation 280 'mul' 'mul_ln67_15' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 281 [1/1] (0.00ns) (grouped into DSP with root node add_ln67_26)   --->   "%sext_ln67_32 = sext i16 %mul_ln67_15" [dot_q8_0.cpp:67]   --->   Operation 281 'sext' 'sext_ln67_32' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 282 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_25 = add i17 %sext_ln66_12, i17 %sext_ln66_13" [dot_q8_0.cpp:67]   --->   Operation 282 'add' 'add_ln67_25' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 283 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_26 = add i17 %sext_ln66_14, i17 %sext_ln67_32" [dot_q8_0.cpp:67]   --->   Operation 283 'add' 'add_ln67_26' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 14 <SV = 13> <Delay = 5.51>
+ST_14 : Operation 284 [1/1] (0.00ns)   --->   "%sumi_load = load i21 %sumi" [dot_q8_0.cpp:67]   --->   Operation 284 'load' 'sumi_load' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 285 [1/1] (0.00ns)   --->   "%specpipeline_ln4 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_11/directives.tcl:4]   --->   Operation 285 'specpipeline' 'specpipeline_ln4' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 286 [1/1] (0.00ns)   --->   "%specloopname_ln63 = specloopname void @_ssdm_op_SpecLoopName, void @empty_4" [dot_q8_0.cpp:63]   --->   Operation 286 'specloopname' 'specloopname_ln63' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 287 [1/1] (0.00ns)   --->   "%sext_ln67_39 = sext i19 %add_ln67_21" [dot_q8_0.cpp:67]   --->   Operation 287 'sext' 'sext_ln67_39' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 288 [1/1] (0.00ns)   --->   "%sext_ln67_42 = sext i18 %add_ln67_24" [dot_q8_0.cpp:67]   --->   Operation 288 'sext' 'sext_ln67_42' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 289 [1/1] (0.00ns)   --->   "%sext_ln67_43 = sext i17 %add_ln67_25" [dot_q8_0.cpp:67]   --->   Operation 289 'sext' 'sext_ln67_43' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 290 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln67_26 = add i17 %sext_ln66_14, i17 %sext_ln67_32" [dot_q8_0.cpp:67]   --->   Operation 290 'add' 'add_ln67_26' <Predicate = true> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 291 [1/1] (0.00ns)   --->   "%sext_ln67_44 = sext i17 %add_ln67_26" [dot_q8_0.cpp:67]   --->   Operation 291 'sext' 'sext_ln67_44' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 292 [1/1] (1.02ns)   --->   "%add_ln67_27 = add i18 %sext_ln67_44, i18 %sext_ln67_43" [dot_q8_0.cpp:67]   --->   Operation 292 'add' 'add_ln67_27' <Predicate = true> <Delay = 1.02> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 293 [1/1] (0.00ns)   --->   "%sext_ln67_45 = sext i18 %add_ln67_27" [dot_q8_0.cpp:67]   --->   Operation 293 'sext' 'sext_ln67_45' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 294 [1/1] (1.03ns)   --->   "%add_ln67_28 = add i19 %sext_ln67_45, i19 %sext_ln67_42" [dot_q8_0.cpp:67]   --->   Operation 294 'add' 'add_ln67_28' <Predicate = true> <Delay = 1.03> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 295 [1/1] (0.00ns)   --->   "%sext_ln67_46 = sext i19 %add_ln67_28" [dot_q8_0.cpp:67]   --->   Operation 295 'sext' 'sext_ln67_46' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 296 [1/1] (1.05ns)   --->   "%add_ln67_29 = add i20 %sext_ln67_46, i20 %sext_ln67_39" [dot_q8_0.cpp:67]   --->   Operation 296 'add' 'add_ln67_29' <Predicate = true> <Delay = 1.05> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 297 [1/1] (0.00ns)   --->   "%sext_ln67_47 = sext i20 %add_ln67_29" [dot_q8_0.cpp:67]   --->   Operation 297 'sext' 'sext_ln67_47' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 298 [1/1] (1.07ns)   --->   "%sumi_1 = add i21 %sumi_load, i21 %sext_ln67_47" [dot_q8_0.cpp:67]   --->   Operation 298 'add' 'sumi_1' <Predicate = true> <Delay = 1.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 299 [1/1] (0.48ns)   --->   "%store_ln66 = store i21 %sumi_1, i21 %sumi" [dot_q8_0.cpp:66]   --->   Operation 299 'store' 'store_ln66' <Predicate = true> <Delay = 0.48>
+ST_14 : Operation 300 [1/1] (0.00ns)   --->   "%br_ln66 = br void %for.inc" [dot_q8_0.cpp:66]   --->   Operation 300 'br' 'br_ln66' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1.38ns
+The critical path consists of the following:
+	'alloca' operation ('j') [7]  (0 ns)
+	'load' operation ('j', dot_q8_0.cpp:66) on local variable 'j' [16]  (0 ns)
+	'add' operation ('add_ln66', dot_q8_0.cpp:66) [232]  (0.887 ns)
+	'store' operation ('store_ln66', dot_q8_0.cpp:66) of variable 'add_ln66', dot_q8_0.cpp:66 on local variable 'j' [233]  (0.489 ns)
+
+ <State 2>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('xq_load_1', dot_q8_0.cpp:67) on array 'xq' [40]  (1.35 ns)
+
+ <State 3>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('xq_load_5', dot_q8_0.cpp:67) on array 'xq' [84]  (1.35 ns)
+
+ <State 4>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('xq_load_9', dot_q8_0.cpp:67) on array 'xq' [128]  (1.35 ns)
+
+ <State 5>: 2.33ns
+The critical path consists of the following:
+	'add' operation ('add_ln67', dot_q8_0.cpp:67) [26]  (0.975 ns)
+	'getelementptr' operation ('xq_addr', dot_q8_0.cpp:67) [28]  (0 ns)
+	'load' operation ('xq_load', dot_q8_0.cpp:67) on array 'xq' [29]  (1.35 ns)
+
+ <State 6>: 4.35ns
+The critical path consists of the following:
+	'load' operation ('xq_load', dot_q8_0.cpp:67) on array 'xq' [29]  (1.35 ns)
+	'mul' operation ('mul_ln67', dot_q8_0.cpp:67) [34]  (2.17 ns)
+	'add' operation of DSP[201] ('add_ln67_15', dot_q8_0.cpp:67) [201]  (0.831 ns)
+
+ <State 7>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_2', dot_q8_0.cpp:67) [56]  (2.17 ns)
+	'add' operation of DSP[203] ('add_ln67_16', dot_q8_0.cpp:67) [203]  (0.831 ns)
+
+ <State 8>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_4', dot_q8_0.cpp:67) [78]  (2.17 ns)
+	'add' operation of DSP[207] ('add_ln67_18', dot_q8_0.cpp:67) [207]  (0.831 ns)
+
+ <State 9>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_6', dot_q8_0.cpp:67) [100]  (2.17 ns)
+	'add' operation of DSP[209] ('add_ln67_19', dot_q8_0.cpp:67) [209]  (0.831 ns)
+
+ <State 10>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_8', dot_q8_0.cpp:67) [122]  (2.17 ns)
+	'add' operation of DSP[215] ('add_ln67_22', dot_q8_0.cpp:67) [215]  (0.831 ns)
+
+ <State 11>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_10', dot_q8_0.cpp:67) [144]  (2.17 ns)
+	'add' operation of DSP[217] ('add_ln67_23', dot_q8_0.cpp:67) [217]  (0.831 ns)
+
+ <State 12>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_12', dot_q8_0.cpp:67) [166]  (2.17 ns)
+	'add' operation of DSP[221] ('add_ln67_25', dot_q8_0.cpp:67) [221]  (0.831 ns)
+
+ <State 13>: 3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln67_14', dot_q8_0.cpp:67) [188]  (2.17 ns)
+	'add' operation of DSP[223] ('add_ln67_26', dot_q8_0.cpp:67) [223]  (0.831 ns)
+
+ <State 14>: 5.51ns
+The critical path consists of the following:
+	'add' operation of DSP[223] ('add_ln67_26', dot_q8_0.cpp:67) [223]  (0.831 ns)
+	'add' operation ('add_ln67_27', dot_q8_0.cpp:67) [225]  (1.03 ns)
+	'add' operation ('add_ln67_28', dot_q8_0.cpp:67) [227]  (1.04 ns)
+	'add' operation ('add_ln67_29', dot_q8_0.cpp:67) [229]  (1.05 ns)
+	'add' operation ('sumi', dot_q8_0.cpp:67) [231]  (1.07 ns)
+	'store' operation ('store_ln66', dot_q8_0.cpp:66) of variable 'sumi', dot_q8_0.cpp:67 on local variable 'sumi' [234]  (0.489 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

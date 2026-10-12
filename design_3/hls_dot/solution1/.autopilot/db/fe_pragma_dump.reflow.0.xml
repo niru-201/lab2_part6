@@ -1,0 +1,10 @@
+<pragmas>
+<pragma file="dot_q8_0.cpp" line="62" pragmaType="loop_tripcount" parentfunction="dot_q8_0" min="28" max="152" avg="90"/>
+<pragma file="dot_q8_0.cpp" line="3" pragmaType="unroll" parentfunction="dot_q8_0" factor="16" skip_exit_check="0"/>
+<pragma file="dot_q8_0.cpp" line="45" pragmaType="interface" parentfunction="dot_q8_0" mode="ap_ctrl_hs" port="return" name=""/>
+<pragma file="dot_q8_0.cpp" line="46" pragmaType="interface" parentfunction="dot_q8_0" mode="ap_none" port="nb" name="" register="0"/>
+<pragma file="dot_q8_0.cpp" line="48" pragmaType="interface" parentfunction="dot_q8_0" mode="ap_memory" port="xq" storage_type="-1" impl="-1" latency="-1" name="" depth="4864"/>
+<pragma file="dot_q8_0.cpp" line="49" pragmaType="interface" parentfunction="dot_q8_0" mode="ap_memory" port="yq" storage_type="-1" impl="-1" latency="-1" name="" depth="4864"/>
+<pragma file="dot_q8_0.cpp" line="50" pragmaType="interface" parentfunction="dot_q8_0" mode="ap_memory" port="xd" storage_type="-1" impl="-1" latency="-1" name="" depth="152"/>
+<pragma file="dot_q8_0.cpp" line="51" pragmaType="interface" parentfunction="dot_q8_0" mode="ap_memory" port="yd" storage_type="-1" impl="-1" latency="-1" name="" depth="152"/>
+</pragmas>

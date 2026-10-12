@@ -1,0 +1,18 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "dot_q8_0",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/misc\/scratch\/nkg557\/SoC\/Lab2\/Part6\/part6_v4\/design_10b\/run_hls.tcl",
+          "sourceLine": "16",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "dot_q8_0"
+              }]
+          }
+        }]
+    }]}

@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_10d/hls_dot/solution1/./sim/autowrap/testbench/dot_q8_0.cpp_pre.cpp.tb.cpp

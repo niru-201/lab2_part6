@@ -1,0 +1,61 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../vec_dot_q8_0.c in debug mode
+INFO: [HLS 200-10] Running '/usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'nkg557' on host 'mario.ece.utexas.edu' (Linux_x86_64 version 4.18.0-553.170.1.el8_10.x86_64) on Sun Oct 11 17:42:26 CDT 2026
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
+INFO: [HLS 200-10] In directory '/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_1/hls_dot/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_nkg557/37844301791758547021977
+INFO: [APCC 202-1] APCC is done.
+INFO: [HLS 200-112] Total CPU user time: 2.25 seconds. Total CPU system time: 0.28 seconds. Total elapsed time: 2.52 seconds; peak allocated memory: 98.941 MB.
+   Compiling ../../../../tb_dot_q8_0.cpp in debug mode
+   Compiling ../../../../dot_q8_0.cpp in debug mode
+   Generating csim.exe
+
+ Basic hand chosen tests: 
+  [PASS] ones, n=32: ref 32, dut 32, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ones, n=4096: ref 4096, dut 4096, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * 127: ref 516128, dut 516128, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] -128 * -128: ref 524288, dut 524288, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] 127 * -128: ref -520192, dut -520192, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] ramp: ref 2736, dut 2736, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] alternating signs: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] zero scale: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] mixed scales: ref 320, dut 320, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal scale: ref 1.90734863e-06, dut 1.90734863e-06, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] max scales: ref 2.24960133e+15, dut 2.24960133e+15, abs err 0.00e+00, rel err 0.00e+00%
+
+ Testing different lengths: 
+  [PASS] nb = 0: ref 0, dut 0, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX (4864 elements): ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] nb = MAX + 10 is clamped: ref 170240, dut 170240, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] only last block non-zero: ref 3696, dut 3696, abs err 0.00e+00, rel err 0.00e+00%
+
+ Random (llama.cpp quantizer): 
+  n=32, sigma=0.0001: 3/3 pass
+  n=32, sigma=0.02: 3/3 pass
+  n=32, sigma=1: 3/3 pass
+  n=896, sigma=0.0001: 3/3 pass
+  n=896, sigma=0.02: 3/3 pass
+  n=896, sigma=1: 3/3 pass
+  n=4864, sigma=0.0001: 3/3 pass
+  n=4864, sigma=0.02: 3/3 pass
+  n=4864, sigma=1: 3/3 pass
+
+ Special distributions (n=896): 
+  [PASS] outliers: ref -12.986536, dut -12.986536, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -2.57356167, dut -2.57356167, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000326006964, dut -0.000326006964, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref -15.856144, dut -15.856144, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.93269062, dut -3.93269062, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -8.22011789e-05, dut -8.22011789e-05, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] outliers: ref 15.1334705, dut 15.1334705, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] sparse: ref -3.05851436, dut -3.05851436, abs err 0.00e+00, rel err 0.00e+00%
+  [PASS] denormal to normal sweep: ref -0.000636874058, dut -0.000636874058, abs err 0.00e+00, rel err 0.00e+00%
+
+51 tests, 0 failed, 51 bit-exact
+max absolute error: 0.000000e+00
+max relative error: 0.000000e+00 %
+* TEST PASSED *
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

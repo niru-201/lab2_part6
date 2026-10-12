@@ -1,0 +1,82 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: config_compile -pipeline_loops 0 
+INFO: [HLS 200-1510] Running: set_directive_unroll -factor 16 dot_q8_0/ELEM_LOOP 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 dot_q8_0/ELEM_LOOP 
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 4.85 seconds. CPU system time: 0.91 seconds. Elapsed time: 5.83 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 752.078 MB.
+INFO: [HLS 200-10] Analyzing design file 'dot_q8_0.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.43 seconds. CPU system time: 1.02 seconds. Elapsed time: 1.92 seconds; current allocated memory: 753.707 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-188] Unrolling loop 'ELEM_LOOP' (dot_q8_0.cpp:66:9) in function 'dot_q8_0' partially with a factor of 16 (dot_q8_0.cpp:44:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.8 seconds. CPU system time: 0.65 seconds. Elapsed time: 6.14 seconds; current allocated memory: 754.410 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 754.410 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 755.332 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 755.387 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (dot_q8_0.cpp:9:33) to (dot_q8_0.cpp:39:5) in function 'half_to_float'... converting 6 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'half_to_float' into 'dot_q8_0' (dot_q8_0.cpp:70) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'dot_q8_0' (dot_q8_0.cpp:42)...16 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 777.785 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'BLOCK_LOOP' (dot_q8_0.cpp:57:11) in function 'dot_q8_0' the outer loop is not a perfect loop.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 779.699 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dot_q8_0' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dot_q8_0_Pipeline_ELEM_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'ELEM_LOOP'.
+WARNING: [HLS 200-885] The II Violation in module 'dot_q8_0_Pipeline_ELEM_LOOP' (loop 'ELEM_LOOP'): Unable to schedule 'load' operation ('xq_load_3', dot_q8_0.cpp:67) on array 'xq' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'xq'.
+WARNING: [HLS 200-885] The II Violation in module 'dot_q8_0_Pipeline_ELEM_LOOP' (loop 'ELEM_LOOP'): Unable to schedule 'load' operation ('xq_load_7', dot_q8_0.cpp:67) on array 'xq' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'xq'.
+WARNING: [HLS 200-885] The II Violation in module 'dot_q8_0_Pipeline_ELEM_LOOP' (loop 'ELEM_LOOP'): Unable to schedule 'load' operation ('xq_load_11', dot_q8_0.cpp:67) on array 'xq' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'xq'.
+WARNING: [HLS 200-885] The II Violation in module 'dot_q8_0_Pipeline_ELEM_LOOP' (loop 'ELEM_LOOP'): Unable to schedule 'load' operation ('xq_load_15', dot_q8_0.cpp:67) on array 'xq' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'xq'.
+WARNING: [HLS 200-885] The II Violation in module 'dot_q8_0_Pipeline_ELEM_LOOP' (loop 'ELEM_LOOP'): Unable to schedule 'load' operation ('xq_load_10', dot_q8_0.cpp:67) on array 'xq' due to limited memory ports (II = 7). Please consider using a memory core with more ports or partitioning the array 'xq'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 8, Depth = 14, loop 'ELEM_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.32 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.4 seconds; current allocated memory: 782.367 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 782.367 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dot_q8_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.3 seconds. CPU system time: 0 seconds. Elapsed time: 0.33 seconds; current allocated memory: 783.586 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.23 seconds; current allocated memory: 783.586 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dot_q8_0_Pipeline_ELEM_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------

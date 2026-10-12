@@ -1,0 +1,7 @@
+   Build using "/usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/bin/g++"
+   Compiling dot_q8_0.cpp_pre.cpp.tb.cpp
+   Compiling apatb_dot_q8_0.cpp
+   Compiling tb_dot_q8_0.cpp_pre.cpp.tb.cpp
+   Compiling vec_dot_q8_0.c_pre.c.tb.c
+   Compiling apatb_dot_q8_0_ir.ll
+   Generating cosim.tv.exe

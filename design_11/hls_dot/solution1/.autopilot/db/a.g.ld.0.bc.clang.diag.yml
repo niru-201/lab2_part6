@@ -1,0 +1,18 @@
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaPartiallyUnroll
+DebugLoc:        { File: dot_q8_0.cpp, Line: 44, Column: 0 }
+Function:        _Z8dot_q8_0iPKaPKDhS0_S2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        ELEM_LOOP
+  - String:          ''' ('
+  - LoopLoc:         'dot_q8_0.cpp:66:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          dot_q8_0
+  - String:          ''' partially '
+  - String:          ''
+  - String:          'with a factor of '
+  - Factor:          '16'
+...

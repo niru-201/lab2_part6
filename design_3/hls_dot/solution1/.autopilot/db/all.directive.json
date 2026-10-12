@@ -1,0 +1,35 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "dot_q8_0",
+          "label": "ELEM_LOOP",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/misc\/scratch\/nkg557\/SoC\/Lab2\/Part6\/part6_v4\/design_3\/directives.tcl",
+          "sourceLine": "3",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "16"
+              }]
+          }
+        },
+        {
+          "functionName": "dot_q8_0",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "\/misc\/scratch\/nkg557\/SoC\/Lab2\/Part6\/part6_v4\/design_3\/run_hls.tcl",
+          "sourceLine": "16",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "dot_q8_0"
+              }]
+          }
+        }
+      ]
+    }]}

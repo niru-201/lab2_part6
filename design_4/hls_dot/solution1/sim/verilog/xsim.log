@@ -1,0 +1,80 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Oct 11 17:43:45 2026
+# Process ID: 3858905
+# Current directory: /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_4/hls_dot/solution1/sim/verilog
+# Command line: xsim -mode tcl -source {xsim.dir/dot_q8_0/xsim_script.tcl}
+# Log file: /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_4/hls_dot/solution1/sim/verilog/xsim.log
+# Journal file: /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_4/hls_dot/solution1/sim/verilog/xsim.jou
+# Running On: mario.ece.utexas.edu, OS: Linux, CPU Frequency: 3900.000 MHz, CPU Physical cores: 32, Host memory: 404288 MB
+#-----------------------------------------------------------
+source xsim.dir/dot_q8_0/xsim_script.tcl
+# xsim {dot_q8_0} -autoloadwcfg -tclbatch {dot_q8_0.tcl}
+Time resolution is 1 ps
+source dot_q8_0.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 51 [0.00%] @ "125000"
+// RTL Simulation : 1 / 51 [100.00%] @ "465000"
+// RTL Simulation : 2 / 51 [100.00%] @ "40165000"
+// RTL Simulation : 3 / 51 [100.00%] @ "40495000"
+// RTL Simulation : 4 / 51 [100.00%] @ "40825000"
+// RTL Simulation : 5 / 51 [100.00%] @ "41155000"
+// RTL Simulation : 6 / 51 [100.00%] @ "41485000"
+// RTL Simulation : 7 / 51 [100.00%] @ "42745000"
+// RTL Simulation : 8 / 51 [100.00%] @ "43385000"
+// RTL Simulation : 9 / 51 [100.00%] @ "44645000"
+// RTL Simulation : 10 / 51 [100.00%] @ "44975000"
+// RTL Simulation : 11 / 51 [100.00%] @ "45305000"
+// RTL Simulation : 12 / 51 [100.00%] @ "45325000"
+// RTL Simulation : 13 / 51 [100.00%] @ "92465000"
+// RTL Simulation : 14 / 51 [100.00%] @ "139605000"
+// RTL Simulation : 15 / 51 [100.00%] @ "186745000"
+// RTL Simulation : 16 / 51 [100.00%] @ "187075000"
+// RTL Simulation : 17 / 51 [100.00%] @ "187405000"
+// RTL Simulation : 18 / 51 [100.00%] @ "187735000"
+// RTL Simulation : 19 / 51 [100.00%] @ "188065000"
+// RTL Simulation : 20 / 51 [100.00%] @ "188395000"
+// RTL Simulation : 21 / 51 [100.00%] @ "188725000"
+// RTL Simulation : 22 / 51 [100.00%] @ "189055000"
+// RTL Simulation : 23 / 51 [100.00%] @ "189385000"
+// RTL Simulation : 24 / 51 [100.00%] @ "189715000"
+// RTL Simulation : 25 / 51 [100.00%] @ "198415000"
+// RTL Simulation : 26 / 51 [100.00%] @ "207115000"
+// RTL Simulation : 27 / 51 [100.00%] @ "215815000"
+// RTL Simulation : 28 / 51 [100.00%] @ "224515000"
+// RTL Simulation : 29 / 51 [100.00%] @ "233215000"
+// RTL Simulation : 30 / 51 [100.00%] @ "241915000"
+// RTL Simulation : 31 / 51 [100.00%] @ "250615000"
+// RTL Simulation : 32 / 51 [100.00%] @ "259315000"
+// RTL Simulation : 33 / 51 [100.00%] @ "268015000"
+// RTL Simulation : 34 / 51 [100.00%] @ "315155000"
+// RTL Simulation : 35 / 51 [100.00%] @ "362295000"
+// RTL Simulation : 36 / 51 [100.00%] @ "409435000"
+// RTL Simulation : 37 / 51 [100.00%] @ "456575000"
+// RTL Simulation : 38 / 51 [100.00%] @ "503715000"
+// RTL Simulation : 39 / 51 [100.00%] @ "550855000"
+// RTL Simulation : 40 / 51 [100.00%] @ "597995000"
+// RTL Simulation : 41 / 51 [100.00%] @ "645135000"
+// RTL Simulation : 42 / 51 [100.00%] @ "692275000"
+// RTL Simulation : 43 / 51 [100.00%] @ "700975000"
+// RTL Simulation : 44 / 51 [100.00%] @ "709675000"
+// RTL Simulation : 45 / 51 [100.00%] @ "718375000"
+// RTL Simulation : 46 / 51 [100.00%] @ "727075000"
+// RTL Simulation : 47 / 51 [100.00%] @ "735775000"
+// RTL Simulation : 48 / 51 [100.00%] @ "744475000"
+// RTL Simulation : 49 / 51 [100.00%] @ "753175000"
+// RTL Simulation : 50 / 51 [100.00%] @ "761875000"
+// RTL Simulation : 51 / 51 [100.00%] @ "770575000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 770635 ns : File "/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_4/hls_dot/solution1/sim/verilog/dot_q8_0.autotb.v" Line 554
+run: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:10 . Memory (MB): peak = 1473.719 ; gain = 0.000 ; free physical = 141936 ; free virtual = 314437
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Oct 11 17:43:59 2026...

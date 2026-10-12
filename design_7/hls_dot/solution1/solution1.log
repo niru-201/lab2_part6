@@ -1,0 +1,81 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: set_directive_array_reshape -type cyclic -factor 8 -dim 1 dot_q8_0 xq 
+INFO: [HLS 200-1510] Running: set_directive_array_reshape -type cyclic -factor 8 -dim 1 dot_q8_0 yq 
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 4.94 seconds. CPU system time: 0.92 seconds. Elapsed time: 5.92 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 755.047 MB.
+INFO: [HLS 200-10] Analyzing design file 'dot_q8_0.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.45 seconds. CPU system time: 1.01 seconds. Elapsed time: 1.86 seconds; current allocated memory: 756.613 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-248] Applying array_reshape to 'xq': Cyclic reshaping with factor 8 on dimension 1. (dot_q8_0.cpp:44:0)
+INFO: [HLS 214-248] Applying array_reshape to 'yq': Cyclic reshaping with factor 8 on dimension 1. (dot_q8_0.cpp:44:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.64 seconds. CPU system time: 0.65 seconds. Elapsed time: 6.02 seconds; current allocated memory: 757.332 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 757.332 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 758.086 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] dot_q8_0.cpp:67: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 758.160 MB.
+INFO: [XFORM 203-510] Pipelining loop 'BLOCK_LOOP' (dot_q8_0.cpp:57) in function 'dot_q8_0' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'BLOCK_LOOP' (dot_q8_0.cpp:57) in function 'dot_q8_0' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'ELEM_LOOP' (dot_q8_0.cpp:63) in function 'dot_q8_0' completely with a factor of 32.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (dot_q8_0.cpp:9:33) to (dot_q8_0.cpp:39:5) in function 'half_to_float'... converting 6 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'half_to_float' into 'dot_q8_0' (dot_q8_0.cpp:70) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'dot_q8_0' (dot_q8_0.cpp:14:5)...31 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 780.961 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 780.961 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dot_q8_0' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dot_q8_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_31) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_29) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_27) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_25) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_23) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_21) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_19) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_17) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln67) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'BLOCK_LOOP'.
+WARNING: [HLS 200-880] The II Violation in module 'dot_q8_0' (loop 'BLOCK_LOOP'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation ('sumf_write_ln60', dot_q8_0.cpp:60) of variable 'sumf', dot_q8_0.cpp:70 on local variable 'sumf' and 'load' operation ('sumf_load', dot_q8_0.cpp:70) on local variable 'sumf'.
+WARNING: [HLS 200-880] The II Violation in module 'dot_q8_0' (loop 'BLOCK_LOOP'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation ('sumf_write_ln60', dot_q8_0.cpp:60) of variable 'sumf', dot_q8_0.cpp:70 on local variable 'sumf' and 'load' operation ('sumf_load', dot_q8_0.cpp:70) on local variable 'sumf'.
+WARNING: [HLS 200-880] The II Violation in module 'dot_q8_0' (loop 'BLOCK_LOOP'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation ('sumf_write_ln60', dot_q8_0.cpp:60) of variable 'sumf', dot_q8_0.cpp:70 on local variable 'sumf' and 'load' operation ('sumf_load', dot_q8_0.cpp:70) on local variable 'sumf'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 21, loop 'BLOCK_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.53 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.64 seconds; current allocated memory: 780.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.41 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.45 seconds; current allocated memory: 780.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dot_q8_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO

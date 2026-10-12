@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Oct 11 17:42:54 2026
+# Process ID: 3819723
+# Current directory: /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_10d/hls_dot/solution1/.autopilot/db/ip_tmp
+# Command line: vivado  -notrace -log vivado.log -mode batch -source run_vivado_gen_ip.tcl
+# Log file: /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_10d/hls_dot/solution1/.autopilot/db/ip_tmp/vivado.log
+# Journal file: /misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_10d/hls_dot/solution1/.autopilot/db/ip_tmp/vivado.jou
+# Running On: mario.ece.utexas.edu, OS: Linux, CPU Frequency: 2758.100 MHz, CPU Physical cores: 32, Host memory: 404288 MB
+#-----------------------------------------------------------
+source run_vivado_gen_ip.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1932.801 ; gain = 86.984 ; free physical = 122428 ; free virtual = 294756
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/packages/Xilinx_2022.2/Vivado/2022.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dot_q8_0_fadd_32ns_32ns_32_5_full_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dot_q8_0_fmul_32ns_32ns_32_4_max_dsp_1_ip'...
+WARNING: [IP_Flow 19-4832] The IP name 'dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'dot_q8_0_sitofp_32s_32_4_no_dsp_1_ip'...
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 11 17:43:14 2026...

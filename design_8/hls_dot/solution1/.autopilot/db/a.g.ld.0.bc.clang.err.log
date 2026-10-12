@@ -1,0 +1,2 @@
+remark: dot_q8_0.cpp:44:0: Applying array_reshape to 'xq': Cyclic reshaping with factor 16 on dimension 1.
+remark: dot_q8_0.cpp:44:0: Applying array_reshape to 'yq': Cyclic reshaping with factor 16 on dimension 1.

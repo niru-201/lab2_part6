@@ -1,0 +1,40 @@
+<root versionMajor = "1" versionMinor = "5">
+  <kernel src_name="dot_q8_0" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
+    <args>
+      <arg id="0" access_type="r" src_name="nb" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="nb" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="1" access_type="r" src_name="xq" src_type="signed char const *" src_isptr="1" src_bitwidth="8" src_size_or_depth="4864">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="xq_0" hw_bitwidth="8" hw_size_or_depth="2432" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="xq_1" hw_bitwidth="8" hw_size_or_depth="2432" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="2" access_type="r" src_name="xd" src_type="__fp16 const *" src_isptr="1" src_bitwidth="16" src_size_or_depth="152">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="xd" hw_bitwidth="16" hw_size_or_depth="152" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="3" access_type="r" src_name="yq" src_type="signed char const *" src_isptr="1" src_bitwidth="8" src_size_or_depth="4864">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="yq_0" hw_bitwidth="8" hw_size_or_depth="2432" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="yq_1" hw_bitwidth="8" hw_size_or_depth="2432" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="4" access_type="r" src_name="yd" src_type="__fp16 const *" src_isptr="1" src_bitwidth="16" src_size_or_depth="152">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="yd" hw_bitwidth="16" hw_size_or_depth="152" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="bram" register_option="0"/>
+        </hw>
+      </arg>
+    </args>
+    <return src_type="float" src_bitwidth="32" offset="0x0">
+      <hw hw_usage="data" hw_interface="Register" hw_name="return" hw_bitwidth="32" hw_kernel_support="false"/>
+    </return>
+  </kernel>
+</root>

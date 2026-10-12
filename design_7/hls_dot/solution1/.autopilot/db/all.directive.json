@@ -1,0 +1,78 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "dot_q8_0",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/misc\/scratch\/nkg557\/SoC\/Lab2\/Part6\/part6_v4\/design_7\/directives.tcl",
+          "sourceLine": "2",
+          "pragma": {
+            "name": "ARRAY_RESHAPE",
+            "option": [
+              {
+                "name": "cyclic",
+                "value": ""
+              },
+              {
+                "name": "dim",
+                "value": "1"
+              },
+              {
+                "name": "factor",
+                "value": "8"
+              },
+              {
+                "name": "variable",
+                "value": "xq"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "dot_q8_0",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "\/misc\/scratch\/nkg557\/SoC\/Lab2\/Part6\/part6_v4\/design_7\/directives.tcl",
+          "sourceLine": "3",
+          "pragma": {
+            "name": "ARRAY_RESHAPE",
+            "option": [
+              {
+                "name": "cyclic",
+                "value": ""
+              },
+              {
+                "name": "dim",
+                "value": "1"
+              },
+              {
+                "name": "factor",
+                "value": "8"
+              },
+              {
+                "name": "variable",
+                "value": "yq"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "dot_q8_0",
+          "label": "",
+          "functionLabel": "",
+          "id": "3",
+          "sourceFile": "\/misc\/scratch\/nkg557\/SoC\/Lab2\/Part6\/part6_v4\/design_7\/run_hls.tcl",
+          "sourceLine": "16",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "dot_q8_0"
+              }]
+          }
+        }
+      ]
+    }]}

@@ -1,0 +1,7 @@
+INFO: [HLS 200-10] Running '/usr/local/packages/Xilinx_2022.2/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'nkg557' on host 'mario.ece.utexas.edu' (Linux_x86_64 version 4.18.0-553.170.1.el8_10.x86_64) on Sun Oct 11 17:42:27 CDT 2026
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
+INFO: [HLS 200-10] In directory '/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_2/hls_dot/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_nkg557/37844711791758547128125
+INFO: [APCC 202-1] APCC is done.
+INFO: [HLS 200-112] Total CPU user time: 2.27 seconds. Total CPU system time: 0.29 seconds. Total elapsed time: 2.51 seconds; peak allocated memory: 98.941 MB.

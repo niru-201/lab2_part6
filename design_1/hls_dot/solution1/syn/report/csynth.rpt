@@ -1,0 +1,130 @@
+
+
+================================================================
+== Synthesis Summary Report of 'dot_q8_0'
+================================================================
++ General Information: 
+    * Date:           Sun Oct 11 17:42:39 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        hls_dot
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu3eg-sbva484-1-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+    |    Modules    | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |        |           |           |     |
+    |    & Loops    | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM |   DSP  |     FF    |    LUT    | URAM|
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+    |+ dot_q8_0     |     -|  0.51|    26753|  2.675e+05|         -|    26754|     -|        no|     -|  6 (1%)|  600 (~0%)|  1183 (1%)|    -|
+    | o BLOCK_LOOP  |     -|  7.30|    26752|  2.675e+05|       176|        -|   152|        no|     -|       -|          -|          -|    -|
+    |  o ELEM_LOOP  |     -|  7.30|      160|  1.600e+03|         5|        -|    32|        no|     -|       -|          -|          -|    -|
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* BRAM
++-----------+------------+---------------+
+| Interface | Data Width | Address Width |
++-----------+------------+---------------+
+| xd_PORTA  | 16         | 32            |
+| xq_PORTA  | 8          | 32            |
+| yd_PORTA  | 16         | 32            |
+| yq_PORTA  | 8          | 32            |
++-----------+------------+---------------+
+
+* Other Ports
++-----------+---------+----------+
+| Interface | Mode    | Bitwidth |
++-----------+---------+----------+
+| ap_return |         | 32       |
+| nb        | ap_none | 32       |
++-----------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+---------------------+
+| Argument | Direction | Datatype            |
++----------+-----------+---------------------+
+| nb       | in        | int                 |
+| xq       | in        | signed char const * |
+| xd       | in        | __fp16 const *      |
+| yq       | in        | signed char const * |
+| yd       | in        | __fp16 const *      |
+| return   | out       | float               |
++----------+-----------+---------------------+
+
+* SW-to-HW Mapping
++----------+--------------+-----------+
+| Argument | HW Interface | HW Type   |
++----------+--------------+-----------+
+| nb       | nb           | port      |
+| xq       | xq_PORTA     | interface |
+| xd       | xd_PORTA     | interface |
+| yq       | yq_PORTA     | interface |
+| yd       | yd_PORTA     | interface |
+| return   | ap_return    | port      |
++----------+--------------+-----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------+-----+--------+------------+------+---------+---------+
+| Name                                | DSP | Pragma | Variable   | Op   | Impl    | Latency |
++-------------------------------------+-----+--------+------------+------+---------+---------+
+| + dot_q8_0                          | 6   |        |            |      |         |         |
+|   add_ln60_fu_312_p2                | -   |        | add_ln60   | add  | fabric  | 0       |
+|   add_ln66_fu_336_p2                | -   |        | add_ln66   | add  | fabric  | 0       |
+|   add_ln67_fu_342_p2                | -   |        | add_ln67   | add  | fabric  | 0       |
+|   mac_muladd_8s_8s_21s_21_4_1_U4    | 1   |        | mul_ln67   | mul  | dsp48   | 3       |
+|   mac_muladd_8s_8s_21s_21_4_1_U4    | 1   |        | sumi_1     | add  | dsp48   | 3       |
+|   add_ln22_fu_407_p2                | -   |        | add_ln22   | add  | fabric  | 0       |
+|   sub_ln34_fu_599_p2                | -   |        | sub_ln34   | sub  | fabric  | 0       |
+|   add_ln22_1_fu_769_p2              | -   |        | add_ln22_1 | add  | fabric  | 0       |
+|   sub_ln34_1_fu_961_p2              | -   |        | sub_ln34_1 | sub  | fabric  | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul        | fmul | maxdsp  | 3       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul1       | fmul | maxdsp  | 3       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U1 | 2   |        | sumf_1     | fadd | fulldsp | 4       |
++-------------------------------------+-----+--------+------------+------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------------+------------------------------+-------------------------------------+
+| Type           | Options                      | Location                            |
++----------------+------------------------------+-------------------------------------+
+| interface      | mode=ap_ctrl_hs port=return  | dot_q8_0.cpp:45 in dot_q8_0, return |
+| interface      | mode=ap_none port=nb         | dot_q8_0.cpp:46 in dot_q8_0, nb     |
+| interface      | mode=bram port=xq depth=4864 | dot_q8_0.cpp:48 in dot_q8_0, xq     |
+| interface      | mode=bram port=yq depth=4864 | dot_q8_0.cpp:49 in dot_q8_0, yq     |
+| interface      | mode=bram port=xd depth=152  | dot_q8_0.cpp:50 in dot_q8_0, xd     |
+| interface      | mode=bram port=yd depth=152  | dot_q8_0.cpp:51 in dot_q8_0, yd     |
+| loop_tripcount | min=28 max=152               | dot_q8_0.cpp:62 in dot_q8_0         |
++----------------+------------------------------+-------------------------------------+
+
+

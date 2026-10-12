@@ -1,0 +1,25 @@
+/misc/scratch/nkg557/SoC/Lab2/Part6/part6_v4/design_10a/run_hls.tcl:16:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=name=dot_q8_0_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLSDIRECTIVE TOP name=dot_q8_0
+        ^
+dot_q8_0.cpp:45:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=mode=ap_ctrl_hs port=return_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=ap_ctrl_hs port=return
+        ^
+dot_q8_0.cpp:46:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=mode=ap_none port=nb_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=ap_none port=nb
+        ^
+dot_q8_0.cpp:48:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=mode=bram port=xq depth=4864_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=bram port=xq depth=4864
+        ^
+dot_q8_0.cpp:49:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=mode=bram port=yq depth=4864_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=bram port=yq depth=4864
+        ^
+dot_q8_0.cpp:50:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=mode=bram port=xd depth=152_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=bram port=xd depth=152
+        ^
+dot_q8_0.cpp:51:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=mode=bram port=yd depth=152_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=bram port=yd depth=152
+        ^
+dot_q8_0.cpp:62:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dot_q8_0_XLX_SEP_ PragmaOptions=min=28 max=152_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=28 max=152
+        ^
+8 warnings generated.

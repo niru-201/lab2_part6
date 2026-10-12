@@ -1,0 +1,2 @@
+remark: dot_q8_0.cpp:44:0: Unrolling loop 'ELEM_LOOP' (dot_q8_0.cpp:66:9) in function 'dot_q8_0': changing partial unrolling into complete unrolling since the unrolling factor (=32) is no less than the loop trip count (=32).
+remark: dot_q8_0.cpp:44:0: Unrolling loop 'ELEM_LOOP' (dot_q8_0.cpp:66:9) in function 'dot_q8_0' completely with a factor of 32
